@@ -13,4 +13,4 @@ with st.expander("Undress - Sombr"):
     And I don't wanna learn another scent.  
     I don't want children of another man to have the eyes of the girl I won't forget.
     """)
-    st.markdown("*Tags: #teamwork*")
+    st.markdown("*Tags: #lyrics*")
