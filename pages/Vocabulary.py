@@ -31,7 +31,7 @@ with tab2:
   
   # --- Load CSV from GitHub ---
 
-  url = "https://raw.githubusercontent.com/MK316/Digital-Literacy-Class/refs/heads/main/data/word_frequency.csv"  # ← replace this!
+  url = "https://github.com/yeeunk28/streamlit25/raw/main/data/word_frequency%20(1).csv"  # ← replace this!
   df = pd.read_csv(url)
   
   # --- Dropdown to select word ---
