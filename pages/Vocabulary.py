@@ -15,7 +15,7 @@ with tab1:
   st.markdown("### 📋 Word Frequency Table")
 
    # Load CSV from GitHub (update the link below)
-  url = "https://github.com/yeeunk28/streamlit25/raw/main/data/word_frequency.csv"
+  url = "https://github.com/yeeunk28/streamlit25/raw/main/data/word_frequency%20(1).csv"
   df = pd.read_csv(url)
 
     # Show table only when button is clicked
