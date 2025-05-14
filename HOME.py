@@ -8,7 +8,7 @@ st.markdown("---")
 
 st.header("Welcome to my project page!")
 
-with st.expander("📝 2025-05-14"):
+with st.expander("Undress - Sombr"):
     st.write("""
     And I don't wanna learn another scent.
     I don't want children of another man to have the eyes of the girl I won't forget.
