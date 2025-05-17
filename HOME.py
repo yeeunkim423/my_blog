@@ -18,8 +18,8 @@ with st.expander("Undress - Sombr"):
     
 with st.expander("the 1 - Taylor Swift"):
     st.write("""
-    And if my wishes came true, it would've been you.
+    And if my wishes came true, it would've been you.  
     In my defense, I have none.  
-    For never leaving well enough alone.
+    For never leaving well enough alone.  
     But it would've been fun, if you would've been the one.
     """)
