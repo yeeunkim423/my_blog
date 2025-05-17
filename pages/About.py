@@ -1,34 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-components.html(
-    """
-    <style>
-      #topButton {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        padding: 12px 18px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 16px;
-        z-index: 9999;
-      }
-      #topButton:hover {
-        background-color: #45a049;
-      }
-    </style>
-
-    <button id="topButton" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-      맨 위로 가기 ⬆️
-    </button>
-    """,
-    height=60
-)
-
 
 st.title("🎧 Daelicent Playlist")
 st.caption("A soundtrack for Daelicent")
@@ -582,3 +554,30 @@ if "lyrics" in songs[selected_song]:
     st.markdown("**Lyrics:**")
     st.markdown(songs[selected_song]["lyrics"])
 
+components.html(
+    """
+    <style>
+      #topButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        z-index: 9999;
+      }
+      #topButton:hover {
+        background-color: #45a049;
+      }
+    </style>
+
+    <button id="topButton" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+      맨 위로 가기 ⬆️
+    </button>
+    """,
+    height=60
+)
