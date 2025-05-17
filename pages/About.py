@@ -1,6 +1,12 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
+components.html(
+    html_code_string,
+    height=60  # 숫자 타입
+)
+
+
 st.title("🎧 Daelicent Playlist")
 st.caption("A soundtrack for Daelicent")
 
