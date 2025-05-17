@@ -9,7 +9,7 @@ st.image(url, caption="The look of love", use_container_width=True)
 
 st.header("Welcome to my page!")
 
-st.caption("Daelicent playlist)
+st.caption("Daelicent playlist")
 with st.expander("Undress - Sombr"):
     st.write("""
     And I don't wanna learn another scent.  
