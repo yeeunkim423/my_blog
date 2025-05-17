@@ -554,6 +554,12 @@ if "lyrics" in songs[selected_song]:
     st.markdown("**Lyrics:**")
     st.markdown(songs[selected_song]["lyrics"])
 
+st.title("스크롤 테스트")
+
+# 긴 내용으로 스크롤 생성
+for i in range(50):
+    st.write(f"라인 {i+1}")
+
 components.html(
     """
     <style>
@@ -575,9 +581,13 @@ components.html(
       }
     </style>
 
-    <button id="topButton" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-      맨 위로 가기 ⬆️
-    </button>
+    <button id="topButton">맨 위로 가기 ⬆️</button>
+
+    <script>
+      document.getElementById('topButton').addEventListener('click', function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      });
+    </script>
     """,
-    height=60
+    height=80,
 )
