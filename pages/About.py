@@ -123,19 +123,109 @@ For a new person all over again
     "The 1 - Taylor Swift": {
         "url": "https://youtu.be/KsZ6tROaVOQ",
         "lyrics": """
-And if my wishes came true, it would've been you.  
-In my defense, I have none.  
-For never leaving well enough alone.  
-But it would've been fun, if you would've been the one.  
+I'm doing good, I'm on some new shit  
+Been saying yes instead of no  
+I thought I saw you at the bus stop, I didn't though  
+I hit the ground running each night  
+I hit the Sunday matinée  
+You know, the greatest films of all time were never made  
+
+I guess you never know, never know  
+And if you wanted me, you really should've showed  
+And if you never bleed, you're never gonna grow  
+And it's alright now    
+
+But we were something, don't you think so?  
+Roaring twenties, tossing pennies in the pool  
+And if my wishes came true  
+It would've been you  
+In my defense, I have none  
+For never leaving well enough alone  
+But it would've been fun  
+If you would've been the one  
+(Ooh)  
+
+I had this dream you're doing cool shit  
+Having adventures on your own  
+You meet some woman on the internet and take her home  
+We never painted by the numbers, baby  
+But we were making it count  
+You know, the greatest loves of all time are over now  
+
+I guess you never know, never know  
+And it's another day waking up alone  
+
+But we were something, don't you think so?  
+Roaring twenties, tossing pennies in the pool  
+And if my wishes came true  
+It would've been you  
+In my defense, I have none  
+For never leaving well enough alone  
+But it would've been fun  
+If you would've been the one  
+
+I, I, I persist and resist the temptation to ask you  
+If one thing had been different  
+Would everything be different today?  
+
+We were something, don't you think so?  
+Rosé flowing with your chosen family  
+And it would've been sweet  
+If it could've been me  
+In my defense, I have none  
+For digging up the grave another time  
+But it would've been fun  
+If you would've been the one  
+(Ooh)  
 """
     },
-    "Mystery of Love - Sufjan Steven": {
+    "Mystery of Love - Sufjan Stevens": {
         "url": "https://youtu.be/gVVhHjyC04k?si=snSYVoznmq9i_xbo",
         "lyrics": """
+Oh, to see without my eyes  
+The first time that you kissed me  
+Boundless by the time I cried  
+I built your walls around me  
+
+White noise, what an awful sound  
+Fumbling by Rogue River  
+Feel my feet above the ground  
+Hand of God, deliver me  
+
+Oh, oh woe-oh-woah is me  
+The first time that you touched me  
+Oh, will wonders ever cease?  
+Blessed be the mystery of love  
+
+Lord, I no longer believe  
+Drowned in living waters  
+Cursed by the love that I received  
+From my brother's daughter  
+
 Like Hephaestion, who died  
-Alexander's lover.  
-Now my riverbed has dried.  
+Alexander's lover  
+Now my riverbed has dried  
 Shall I find no other?  
+
+Oh, oh woe-oh-woah is me  
+I'm running like a plover  
+Now I'm prone to misery  
+The birthmark on your shoulder reminds me  
+
+How much sorrow can I take?  
+Blackbird on my shoulder  
+And what difference does it make  
+When this love is over?  
+
+Shall I sleep within your bed?  
+River of unhappiness  
+Hold your hands upon my head  
+'Til I breathe my last breath  
+
+Oh, oh woe-oh-woah is me  
+The last time that you touched me  
+Oh, will wonders ever cease?  
+Blessed be the mystery of love   
 """
     },
     "Ghost - Halsey": {
@@ -198,21 +288,124 @@ What happened to the soul that you used to be
     "Dark Paradise - Lana Del Rey": {
         "url": "https://youtu.be/dvSZQ4oMHGM",
         "lyrics": """
-And there's no remedy for memory, your face is like a melody.  
-It won't leave my head.  
-Your soul is haunting me and telling me that everything is fine.  
+All my friends tell me I should move on  
+I'm lying in the ocean, singing your song  
+Ah, ah, ah, ah  
+That's how you sang it  
+
+Loving you forever can't be wrong  
+Even though you're not here, won't move on  
+Ah, ah, ah, ah  
+That's how we played it  
+
+And there's no remedy for memory  
+Your face is like a melody  
+It won't leave my head  
+Your soul is haunting me and telling me  
+That everything is fine  
 But I wish I was dead (dead, like you)  
+
+Every time I close my eyes  
+It's like a dark paradise  
+No one compares to you  
+I'm scared that you  
+Won't be waiting on the other side  
+
+Every time I close my eyes  
+It's like a dark paradise  
+No one compares to you  
+I'm scared that you  
+Won't be waiting on the other side  
+
+All my friends ask me why I stay strong  
+Tell 'em when you find true love, it lives on  
+Ah, ah, ah, ah  
+That's why I stay here  
+
+And there's no remedy for memory  
+Your face is like a melody  
+It won't leave my head  
+Your soul is haunting me and telling me  
+That everything is fine  
+But I wish I was dead (dead, like you)  
+
+Every time I close my eyes  
+It's like a dark paradise  
+No one compares to you  
+I'm scared that you  
+Won't be waiting on the other side  
+
+Every time I close my eyes  
+It's like a dark paradise  
+No one compares to you  
+But there's no you  
+Except in my dreams tonight  
+
+Oh, oh, oh, oh, ha, ha, ha, ha  
+I don't wanna wake up from this tonight  
+Oh, oh, oh, oh, ha, ha, ha, ha  
+I don't wanna wake up from this tonight  
+
+There's no relief  
+I see you in my sleep  
+And everybody's rushing me  
+But I can feel you touching me  
+
+There's no release  
+I feel you in my dreams  
+Telling me I'm fine  
+ 
+Every time I close my eyes  
+It's like a dark paradise  
+No one compares to you  
+I'm scared that you  
+Won't be waiting on the other side (so tell me)  
+
+Every time I close my eyes  
+It's like a dark paradise  
+No one compares to you  
+But there's no you  
+Except in my dreams tonight  
+
+Oh, oh, oh, oh, ha, ha, ha, ha  
+I don't wanna wake up from this tonight  
+Oh, oh, oh, oh, ha, ha, ha, ha  
+I don't wanna wake up from this tonight  
 """
     },
     "The Night We Met - Lord Huron": {
         "url": "https://youtu.be/KtlgYxa6BMU",
         "lyrics": """
+I am not the only traveler  
+Who has not repaid his debt  
+I've been searching for a trail to follow again  
+Take me back to the night we met  
+
+And then I can tell myself  
+What the hell I'm supposed to do  
+And then I can tell myself  
+Not to ride along with you  
+
 I had all and then most of you  
-Some and now none of you.  
-Take me back to the night we met.  
-I don't know what I'm supposed to do,  
-Haunted by the ghost of you.  
-Oh, take me back to the night we met.
+Some and now none of you  
+Take me back to the night we met  
+
+I don't know what I'm supposed to do  
+Haunted by the ghost of you  
+Oh, take me back to the night we met  
+
+When the night was full of terrors  
+And your eyes were filled with tears  
+When you had not touched me yet  
+Take me back to the night we met  
+ 
+I had all and then most of you  
+Some and now none of you  
+Take me back to the night we met  
+ 
+I don't know what I'm supposed to do  
+Haunted by the ghost of you  
+Take me back to the night we met  
 """
     }
 }
