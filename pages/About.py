@@ -553,13 +553,6 @@ st.video(songs[selected_song]['url'])
 if "lyrics" in songs[selected_song]:
     st.markdown("**Lyrics:**")
     st.markdown(songs[selected_song]["lyrics"])
-
-st.title("스크롤 테스트")
-
-# 긴 내용으로 스크롤 생성
-for i in range(50):
-    st.write(f"라인 {i+1}")
-
 components.html(
     """
     <style>
@@ -589,5 +582,6 @@ components.html(
       });
     </script>
     """,
-    height=80,
+    height=60
 )
+
