@@ -18,19 +18,40 @@ Oh-oh, lover, you should've come over.
     },
     "Undress - Sombr": {
         "description": "Haunting and raw — the ache of knowing someone might never return.",
-        "url": "https://youtu.be/fOQ_-gZsnYQ"
+        "url": "https://youtu.be/fOQ_-gZsnYQ",
+        "lyrics": """
+And I don't wanna learn another scent.  
+I don't want children of another man to have the eyes of the girl I won't forget.
+"""
     },
     "The 1 - Taylor Swift": {
         "description": "A soft, aching acceptance of what could’ve been.",
-        "url": "https://youtu.be/KsZ6tROaVOQ"
+        "url": "https://youtu.be/KsZ6tROaVOQ",
+        "lyrics": """
+    And if my wishes came true, it would've been you.  
+    In my defense, I have none.  
+    For never leaving well enough alone.  
+    But it would've been fun, if you would've been the one.  
+"""
     },
     "Dark Paradise - Lana Del Rey": {
         "description": "The ghost of a love that never quite leaves—just like him in her thoughts.",
-        "url": "https://youtu.be/dvSZQ4oMHGM"
+        "url": "https://youtu.be/dvSZQ4oMHGM",
+        "lyrics": """
+Every time I close my eyes  
+It's like a dark paradise  
+No one compares to you  
+I'm scared that you won't be waiting on the other side  
+"""
     },
     "The Night We Met - Lord Huron": {
         "description": "A return to the moment it all began... and fell apart.",
-        "url": "https://youtu.be/KtlgYxa6BMU"
+        "url": "https://youtu.be/KtlgYxa6BMU",
+        "lyrics": """
+I had all and then most of you  
+Some and now none of you  
+Take me back to the night we met  
+"""
     }
 }
 
@@ -40,7 +61,6 @@ st.subheader(selected_song)
 st.markdown(f"*{songs[selected_song]['description']}*")
 st.video(songs[selected_song]['url'])
 
-# 🎤 가사 출력 (있을 경우에만)
 if "lyrics" in songs[selected_song]:
     st.markdown("**Lyrics:**")
     st.markdown(songs[selected_song]["lyrics"])
