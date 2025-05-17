@@ -73,6 +73,82 @@ Lover, you should've come over
 'Cause it's not too late  
 """
     },
+    "Daddy Issues - The Neighbourhood": {
+        "url": "https://youtu.be/gzA53VsWCr8?si=_PchT1c53bR-wjis",
+        "lyrics": """
+Take you like a drug  
+I taste you on my tongue  
+
+You ask me what I'm thinking about  
+I tell you that I'm thinking about  
+Whatever you're thinking about (ah)  
+Tell me something, then I'll forget  
+And you might have to tell me again  
+It's crazy what you do for a friend  
+
+Go ahead and cry, little girl  
+Nobody does it like you do  
+I know how much it matters to you  
+I know that you got daddy issues  
+And if you were my little girl  
+I'd do whatever I could do  
+I'd run away and hide with you  
+I know that you got daddy issues  
+And I do too  
+
+I tried to write your name in the rain  
+But the rain never came, so I made with the Sun  
+The shade always comes at the worst times (ah)  
+
+You ask me what I'm thinking about  
+I tell you that I'm thinking about  
+Whatever you're thinking about  
+Tell me something, then I'll forget  
+And you might have to tell me again  
+It's crazy what you do for a friend  
+
+Go ahead and cry, little girl  
+Nobody does it like you do  
+I know how much it matters to you  
+I know that you got daddy issues  
+And if you were my little girl  
+I'd do whatever I could do  
+I'd run away and hide with you  
+I know that you got daddy issues  
+
+I keep on trying to let you go  
+I'm dying to let you know  
+How I'm getting on  
+I didn't cry when you left at first  
+But now that you're dead it hurts  
+This time I gotta know  
+Where did my daddy go?  
+
+I'm not entirely here  
+Half of me has disappeared  
+
+Go ahead and cry, little boy  
+You know that your daddy did too  
+You know what your mama went through  
+You gotta let it out soon, just let it out  
+
+Go ahead and cry, little girl  
+Nobody does it like you do  
+I know how much it matters to you  
+I know that you got daddy issues  
+And if you were my little girl  
+I'd do whatever I could do  
+I'd run away and hide with you  
+I know that you got daddy issues  
+And I do too  
+
+If you were my little girl  
+I'd do whatever I could do  
+I'd run away and hide with you  
+I know that you got daddy issues  
+And I do too    
+"""
+    },
     "Undress - Sombr": {
         "url": "https://youtu.be/fOQ_-gZsnYQ",
         "lyrics": """
