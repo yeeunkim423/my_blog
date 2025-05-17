@@ -4,11 +4,11 @@ import streamlit as st
 st.title("🎧 Daelicent Playlist")
 st.caption("A soundtrack for Daelicent")
 
- suggestion = st.text_input("🎵 Suggest a song for the fanmix")
+suggestion = st.text_input("🎵 Suggest a song for the fanmix")
 
     if suggestion:
         st.success(f"Thanks for your suggestion: {suggestion}")
-
+     
 songs = {
     "Lover, You Should’ve Come Over - Jeff Buckley": {
         "url": "https://youtu.be/HxfE6PJmGS8",
