@@ -4,7 +4,7 @@ st.title("🍃 Comfort place for Daelicent")
 st.caption("This is my comfort place for Daelicent")
 
 url="https://github.com/yeeunkim423/my_blog/raw/main/images/alicent-daemon.jpg"
-st.image(url, caption="Image link", width=800)
+st.image(url, caption="Image link", width=700)
 st.header("Welcome to my page!")
 
 with st.expander("Undress - Sombr"):
