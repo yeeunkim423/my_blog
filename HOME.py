@@ -4,7 +4,7 @@ st.title("🍃 Comfort Place for Daelicent")
 st.caption("This is my comfort place for Daelicent")
 
 url = "https://github.com/yeeunkim423/my_blog/raw/main/images/alicent-daemon.jpg"
-st.image(url, caption="The look of love", use_container_width=True)
+st.image(url, use_container_width=True)
 
 st.header("Welcome to my page!")
 
@@ -36,3 +36,15 @@ with st.expander("the 1 - Taylor Swift"):
     But it would've been fun, if you would've been the one.
     """)
     st.video("https://youtu.be/KsZ6tROaVOQ?si=go9LzboK4SXqExIQ")  
+
+with st.expander("Dark Paradise - Lana Del Rey"):
+    st.write("""
+  And there's no remedy for memory, your face is like a melody.  
+  It won't leave my head.  
+  Your soul is haunting me and telling me that everything is fine.  
+  But I wish I was dead (dead, like you)  
+    """)
+    st.video("https://youtu.be/dvSZQ4oMHGM?si=lqs_eydmSPLaampU")  
+
+with st.expander("
+
