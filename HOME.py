@@ -8,3 +8,4 @@ st.image(url, caption="1X01 The Heirs of the Dragon", use_container_width=True)
 
 st.header("Welcome to my page!")
 
+st.markdown("[Listen to Daelicent's playlist 🎶](https://youtu.be/mC5t1beUsrM?si=NoQ5GXzibA_8Pa7Z")
