@@ -20,6 +20,10 @@ Oh-oh, lover, you should've come over.
         "description": "Haunting and raw — the ache of knowing someone might never return.",
         "url": "https://youtu.be/fOQ_-gZsnYQ",
         "lyrics": """
+I don't wanna get undressed  
+For a new person all over again.  
+I don't wanna kiss someone else's neck  
+And have to pretend it's yours instead.  
 And I don't wanna learn another scent.  
 I don't want children of another man to have the eyes of the girl I won't forget.
 """
@@ -38,19 +42,22 @@ I don't want children of another man to have the eyes of the girl I won't forget
         "description": "The ghost of a love that never quite leaves—just like him in her thoughts.",
         "url": "https://youtu.be/dvSZQ4oMHGM",
         "lyrics": """
-Every time I close my eyes  
-It's like a dark paradise  
-No one compares to you  
-I'm scared that you won't be waiting on the other side  
+    And there's no remedy for memory, your face is like a melody.  
+    It won't leave my head.  
+    Your soul is haunting me and telling me that everything is fine.  
+    But I wish I was dead (dead, like you)  
 """
     },
     "The Night We Met - Lord Huron": {
         "description": "A return to the moment it all began... and fell apart.",
         "url": "https://youtu.be/KtlgYxa6BMU",
         "lyrics": """
-I had all and then most of you  
-Some and now none of you  
-Take me back to the night we met  
+        I had all and then most of you  
+    Some and now none of you.  
+    Take me back to the night we met.  
+    I don't know what I'm supposed to do,  
+    Haunted by the ghost of you.  
+    Oh, take me back to the night we met.
 """
     }
 }
