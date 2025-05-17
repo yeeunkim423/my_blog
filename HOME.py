@@ -10,11 +10,10 @@ st.header("Welcome to my page!")
 
 choice = st.radio("Who do you relate to more?", ("Daemon", "Alicent", "Both", "Neither"))
 
-if choice == "Daemon":
-    st.write("You’re a bold leader with a dash of chaos! 🐉")
-elif choice == "Alicent":
-    st.write("You balance the spotlight and your true self gracefully. 💚")
-elif choice == "Both":
-    st.write("You see the best in both worlds. ✨")
-else:
-    st.write("You march to your own beat. 🎵")
+st.subheader("Latest Social Posts")
+st.markdown("""
+- 🌟 @daemon: "Taking over the boardroom today. #CEOlife"  
+- 💚 @alicent: "Balancing fame and freedom, one step at a time."  
+- 🔥 @daemon: "Power moves only. Watch this space."  
+- 💬 @alicent: "Sometimes being yourself is the hardest role to play."
+""")
