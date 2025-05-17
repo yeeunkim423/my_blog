@@ -551,3 +551,12 @@ st.video(songs[selected_song]['url'])
 if "lyrics" in songs[selected_song]:
     st.markdown("**Lyrics:**")
     st.markdown(songs[selected_song]["lyrics"])
+
+# 맨 위로 가기 버튼 UI
+if st.button("맨 위로 가기 ⬆️"):
+    # 버튼 클릭 시 자바스크립트로 스크롤 맨 위 이동
+    components.html("""
+    <script>
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    </script>
+    """, height=0)
