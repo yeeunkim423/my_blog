@@ -3,9 +3,9 @@ import streamlit as st
 st.title("🍃 Comfort place for Daelicent")
 st.caption("This is my comfort place for Daelicent")
 
-url="https://x.com/i/status/1830326787718721779"
+url="https://github.com/yeeunkim423/my_blog/raw/main/images/alicent-daemon.jpg"
 st.image(url, caption="Image link", width=300)
-st.header("Welcome to my project page!")
+st.header("Welcome to my page!")
 
 with st.expander("Undress - Sombr"):
     st.write("""
