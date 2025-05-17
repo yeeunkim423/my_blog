@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("🍃 comfort place for Daelicent")
+st.title("🍃 Comfort place for Daelicent")
 st.caption("This is my comfort place for Daelicent")
 
 st.write("This should be a collaboratory work")
