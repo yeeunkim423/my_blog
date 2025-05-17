@@ -4,11 +4,11 @@ st.title("🍃 Comfort Place for Daelicent")
 st.caption("This is my comfort place for Daelicent")
 
 url = "https://github.com/yeeunkim423/my_blog/raw/main/images/alicent-daemon.jpg"
-st.image(url, use_container_width=True)
+st.image(url, caption="The look of love", use_container_width=True)
 
 st.header("Welcome to my page!")
 
-st.caption("Daelicent playlist")
+st.header("Daelicent playlist")
 
 with st.expander("Lover, you should've come over - Jeff Buckey"):
     st.write("""
@@ -39,12 +39,21 @@ with st.expander("the 1 - Taylor Swift"):
 
 with st.expander("Dark Paradise - Lana Del Rey"):
     st.write("""
-  And there's no remedy for memory, your face is like a melody.  
-  It won't leave my head.  
-  Your soul is haunting me and telling me that everything is fine.  
-  But I wish I was dead (dead, like you)  
+    And there's no remedy for memory, your face is like a melody.  
+    It won't leave my head.  
+    Your soul is haunting me and telling me that everything is fine.  
+    But I wish I was dead (dead, like you)  
     """)
     st.video("https://youtu.be/dvSZQ4oMHGM?si=lqs_eydmSPLaampU")  
 
-with st.expander("
+with st.expander("The night we met - Lord Huron"):
+    st.write("""
+    I had all and then most of you  
+    Some and now none of you.  
+    Take me back to the night we met.  
+    I don't know what I'm supposed to do,  
+    Haunted by the ghost of you.  
+    Oh, take me back to the night we met.
+    """)
+    st.video("https://youtu.be/KtlgYxa6BMU?si=CknybMM_lOHocsqa")
 
