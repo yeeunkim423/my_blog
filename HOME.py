@@ -8,8 +8,6 @@ st.image(url, caption="1X01 The Heirs of the Dragon", use_container_width=True)
 
 st.header("Welcome to my page!")
 
-choice = st.radio("Who do you relate to more?", ("Daemon", "Alicent", "Both", "Neither"))
-
 st.subheader("Latest Social Posts")
 st.markdown("""
 - 🌟 @daemon: "Taking over the boardroom today. #CEOlife"  
