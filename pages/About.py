@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 st.title("🎧 Daelicent Playlist")
 st.caption("A soundtrack for Daelicent")
