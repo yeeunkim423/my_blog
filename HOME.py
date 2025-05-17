@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("🍃 Comfort place for Daelicent")
+st.title("🍃 Comfort Place for Daelicent")
 st.caption("This is my comfort place for Daelicent")
 
 url = "https://github.com/yeeunkim423/my_blog/raw/main/images/alicent-daemon.jpg"
