@@ -8,4 +8,13 @@ st.image(url, caption="1X01 The Heirs of the Dragon", use_container_width=True)
 
 st.header("Welcome to my page!")
 
-st.markdown("[Listen to Daelicent's playlist 🎶](https://youtu.be/mC5t1beUsrM?si=NoQ5GXzibA_8Pa7Z")
+choice = st.radio("Who do you relate to more?", ("Daemon", "Alicent", "Both", "Neither"))
+
+if choice == "Daemon":
+    st.write("You’re a bold leader with a dash of chaos! 🐉")
+elif choice == "Alicent":
+    st.write("You balance the spotlight and your true self gracefully. 💚")
+elif choice == "Both":
+    st.write("You see the best in both worlds. ✨")
+else:
+    st.write("You march to your own beat. 🎵")
