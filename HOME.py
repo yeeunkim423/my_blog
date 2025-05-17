@@ -8,10 +8,14 @@ st.image(url, caption="1X01 The Heirs of the Dragon", use_container_width=True)
 
 st.header("Welcome to my page!")
 
-st.subheader("Latest Social Posts")
-st.markdown("""
-- 🌟 @daemon: "Taking over the boardroom today. #CEOlife"  
-- 💚 @alicent: "Balancing fame and freedom, one step at a time."  
-- 🔥 @daemon: "Power moves only. Watch this space."  
-- 💬 @alicent: "Sometimes being yourself is the hardest role to play."
+st.subheader("Characters")
+st.write("""
+**Daemon Targaryen**  
+- The charismatic and complex CEO  
+- Known for his boldness and charm
+
+**Alicent Hightower**  
+- Influencer and daughter of a powerful politician  
+- Balances public image and private desires
 """)
+
