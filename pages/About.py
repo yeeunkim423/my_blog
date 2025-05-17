@@ -7,14 +7,14 @@ songs = {
     "Lover, You Should’ve Come Over - Jeff Buckley": {
         "description": "A song full of yearning, as if sung from a distant tower where love slipped away.",
         "url": "https://youtu.be/HxfE6PJmGS8",
-        "lyrics": """
+        st.write("""
         So I'll wait for you, love.  
         And I'll burn.  
         Will I ever see your sweet return?  
         Oh, will I ever learn?  
         Oh-oh, lover, you should've come over.  
         'Cause it's not too late.  
-        """
+        """)
         
     },
     "Undress - Sombr": {
