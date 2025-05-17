@@ -4,8 +4,8 @@ st.title("🍃 Comfort place for Daelicent")
 st.caption("This is my comfort place for Daelicent")
 
 url = "https://github.com/yeeunkim423/my_blog/raw/main/images/alicent-daemon.jpg"
-# 이미지가 화면 너비에 맞춰 조정되도록 설정
-st.image(url, caption="Image link", use_column_width=True)
+# 최신 방식으로 이미지 반응형 설정
+st.image(url, caption="Image link", use_container_width=True)
 
 st.header("Welcome to my page!")
 
