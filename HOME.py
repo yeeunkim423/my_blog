@@ -3,9 +3,8 @@ import streamlit as st
 st.title("🍃 Comfort place for Daelicent")
 st.caption("This is my comfort place for Daelicent")
 
-st.write("This should be a collaboratory work")
-st.markdown("---")
-
+url="https://x.com/i/status/1830326787718721779"
+st.image(url, caption="Image link", width=300)
 st.header("Welcome to my project page!")
 
 with st.expander("Undress - Sombr"):
