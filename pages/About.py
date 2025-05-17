@@ -6,7 +6,7 @@ st.caption("A soundtrack for love, ruin, and everything in between.")
 songs = {
     "Lover, You Should’ve Come Over - Jeff Buckley": {
         "description": "A song full of yearning, as if sung from a distant tower where love slipped away.",
-        "url": "https://youtu.be/HxfE6PJmGS8"
+        "url": "https://youtu.be/HxfE6PJmGS8",
         "lyrics": """
         So I'll wait for you, love.  
         And I'll burn.  
