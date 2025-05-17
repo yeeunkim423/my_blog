@@ -1,11 +1,10 @@
 import streamlit as st
 
-st.title("🎧 Daelicent Fanmix")
-st.caption("A soundtrack for love, ruin, and everything in between.")
+st.title("🎧 Daelicent Playlist")
+st.caption("A soundtrack for Daelicent")
 
 songs = {
     "Lover, You Should’ve Come Over - Jeff Buckley": {
-        "description": "A song full of yearning, as if sung from a distant tower where love slipped away.",
         "url": "https://youtu.be/HxfE6PJmGS8",
         "lyrics": """
 So I'll wait for you, love.  
@@ -17,7 +16,6 @@ Oh-oh, lover, you should've come over.
 """
     },
     "Undress - Sombr": {
-        "description": "Haunting and raw — the ache of knowing someone might never return.",
         "url": "https://youtu.be/fOQ_-gZsnYQ",
         "lyrics": """
 I don't wanna get undressed  
@@ -29,7 +27,6 @@ I don't want children of another man to have the eyes of the girl I won't forget
 """
     },
     "The 1 - Taylor Swift": {
-        "description": "A soft, aching acceptance of what could’ve been.",
         "url": "https://youtu.be/KsZ6tROaVOQ",
         "lyrics": """
     And if my wishes came true, it would've been you.  
@@ -38,8 +35,25 @@ I don't want children of another man to have the eyes of the girl I won't forget
     But it would've been fun, if you would've been the one.  
 """
     },
+     "Mystery of Love - Sufjan Steven": {
+        "url": "https://youtu.be/gVVhHjyC04k?si=snSYVoznmq9i_xbo",
+        "lyrics": """
+   Like Hephaestion, who died  
+   Alexander's lover.  
+   Now my riverbed has dried.  
+   Shall I find no other?  
+"""
+    },
+    "Ghost - Halsey": {
+        "url": "https://youtu.be/-r7WTPeCh-I?si=ohEYcgPOyxEwEbCa",
+        "lyrics": """
+   You say that you're no good for me.  
+   'Cause I'm always tugging at your sleeve.  
+   And I swear I hate you when you leave.  
+   I like it anyway.  
+"""
+    },
     "Dark Paradise - Lana Del Rey": {
-        "description": "The ghost of a love that never quite leaves—just like him in her thoughts.",
         "url": "https://youtu.be/dvSZQ4oMHGM",
         "lyrics": """
     And there's no remedy for memory, your face is like a melody.  
@@ -49,10 +63,9 @@ I don't want children of another man to have the eyes of the girl I won't forget
 """
     },
     "The Night We Met - Lord Huron": {
-        "description": "A return to the moment it all began... and fell apart.",
         "url": "https://youtu.be/KtlgYxa6BMU",
         "lyrics": """
-        I had all and then most of you  
+    I had all and then most of you  
     Some and now none of you.  
     Take me back to the night we met.  
     I don't know what I'm supposed to do,  
