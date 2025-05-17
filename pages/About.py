@@ -7,15 +7,14 @@ songs = {
     "Lover, You Should’ve Come Over - Jeff Buckley": {
         "description": "A song full of yearning, as if sung from a distant tower where love slipped away.",
         "url": "https://youtu.be/HxfE6PJmGS8",
-        st.write("""
-        So I'll wait for you, love.  
-        And I'll burn.  
-        Will I ever see your sweet return?  
-        Oh, will I ever learn?  
-        Oh-oh, lover, you should've come over.  
-        'Cause it's not too late.  
-        """)
-        
+        "lyrics": """
+So I'll wait for you, love.  
+And I'll burn.  
+Will I ever see your sweet return?  
+Oh, will I ever learn?  
+Oh-oh, lover, you should've come over.  
+'Cause it's not too late.  
+"""
     },
     "Undress - Sombr": {
         "description": "Haunting and raw — the ache of knowing someone might never return.",
@@ -41,3 +40,7 @@ st.subheader(selected_song)
 st.markdown(f"*{songs[selected_song]['description']}*")
 st.video(songs[selected_song]['url'])
 
+# 🎤 가사 출력 (있을 경우에만)
+if "lyrics" in songs[selected_song]:
+    st.markdown("**Lyrics:**")
+    st.markdown(songs[selected_song]["lyrics"])
