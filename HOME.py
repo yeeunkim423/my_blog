@@ -1,7 +1,7 @@
 import streamlit as st
 
-st.title("🍃 Group 2 project")
-st.caption("This is a group project of G2")
+st.title("🍃 comfort place for Daelicent")
+st.caption("This is my comfort place for Daelicent")
 
 st.write("This should be a collaboratory work")
 st.markdown("---")
