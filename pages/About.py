@@ -1,119 +1,172 @@
 import streamlit as st
-import base64
-import os
 
-st.title("House of the Dragon Fanpage")
+st.set_page_config(page_title="Daemon & Alicent Fanpage", layout="wide")
 
-IMAGE\_FOLDER = "data"
-
-daemon = {
-"Name": "Daemon Targaryen",
-"Aliases": \["Prince of the City", "Lord Flea Bottom", "The rogue prince"],
-"Titles": \[
-"Prince",
-"Ser",
-"Commander of the City Watch",
-"Master of coin",
-"Master of laws",
-"King of the Stepstones and the Narrow Sea",
-"Lord of Runestone (claimant; briefly)",
-"Protector of the Realm"
-],
-"Allegiances": \["House Targaryen", "Blacks"],
-"Culture": "Crownlands",
-"Born": "81 AC",
-"Died": "22nd day of the 5th moon of 130 AC (aged 49) at the Gods Eye",
-"Parents": {"Father": "Baelon Targaryen", "Mother": "Alyssa Targaryen"},
-"Spouses": \["Lady Rhea Royce", "Lady Laena Velaryon", "Princess Rhaenyra Targaryen"],
-"Issue": \["Baela Targaryen", "Rhaena Targaryen", "Stillborn son", "Aegon III Targaryen", "Viserys II Targaryen", "Visenya Targaryen"],
-"Portrayed by": "Matt Smith",
-"Image": "daemon.gif",
+# --- CSS for timeline with better colors ---
+timeline_css = """
+<style>
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 10px 0;
 }
-
-alicent = {
-"Name": "Alicent Hightower",
-"Alias": \["The Queen in Chains"],
-"Titles": \["Lady", "Queen", "Dowager Queen"],
-"Allegiances": \["House Hightower", "House Targaryen", "Greens"],
-"Culture": "Reach",
-"Born": "88 AC",
-"Died": "133 AC in King's Landing",
-"Parents": {"Father": "Otto Hightower"},
-"Spouse": "King Viserys I Targaryen",
-"Issue": \["Aegon II Targaryen", "Helaena Targaryen", "Aemond Targaryen", "Daeron Targaryen"],
-"Portrayed by": "Olivia Cooke / Emily Carey (young)",
-"Images": \["alicent1.gif", "alicent2.gif"],
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #888;  /* 은은한 회색 */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
 }
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+.left {
+  left: 0;
+}
+.right {
+  left: 50%;
+}
+.left::before, .right::before {
+  content: " ";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #555; /* 진한 회색 테두리 */
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.right::before {
+  left: -16px;
+}
+.content {
+  padding: 20px 30px;
+  background-color: #f0f0f0; /* 연한 회색 배경 */
+  color: #111; /* 진한 검정 텍스트 */
+  position: relative;
+  border-radius: 6px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1); /* 은은한 그림자 */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+@media screen and (max-width: 600px) {
+  .timeline::after {
+    left: 31px;
+  }
+  .container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  .container::before {
+    left: 60px;
+  }
+  .left, .right {
+    left: 0%;
+  }
+  .right::before {
+    left: 60px;
+  }
+}
+</style>
+"""
 
-def show\_gif(filename, max\_width="100%"):
-path = os.path.join(IMAGE\_FOLDER, filename)
-with open(path, "rb") as f:
-data = f.read()
-data\_url = base64.b64encode(data).decode()
-gif\_html = f'<img src="data:image/gif;base64,{data_url}" alt="gif" style="max-width:{max_width};">'
-st.markdown(gif\_html, unsafe\_allow\_html=True)
+# --- Timeline HTML content ---
+timeline_html = """
+<div class="timeline">
+  <div class="container left">
+    <div class="content">
+      <h3>81 AC - Birth of Daemon Targaryen</h3>
+      <p>Daemon was born to Baelon and Alyssa Targaryen.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h3>88 AC - Birth of Alicent Hightower</h3>
+      <p>Born to Otto Hightower in the Reach.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h3>Rhaenyra's Reign and the Dance of the Dragons</h3>
+      <p>Daemon serves as a commander and key figure during this period.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h3>Alicent Becomes Queen</h3>
+      <p>She marries King Viserys I Targaryen and becomes the Queen in Chains.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h3>130 AC - Death of Daemon Targaryen</h3>
+      <p>Daemon dies at age 49 near the Gods Eye.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h3>133 AC - Death of Alicent Hightower</h3>
+      <p>She dies in King's Landing.</p>
+    </div>
+  </div>
+</div>
+"""
 
-def show\_character(char):
-st.header(char\["Name"])
-if "Image" in char:
-if char\["Name"] == "Daemon Targaryen":
-show\_gif(char\["Image"], max\_width="60%")  # Daemon 이미지 크기 줄임
-else:
-show\_gif(char\["Image"])
-elif "Images" in char:
-cols = st.columns(len(char\["Images"]))
-for i, img\_file in enumerate(char\["Images"]):
-with cols\[i]:
-show\_gif(img\_file)
+st.title("Daemon Targaryen & Alicent Hightower Fanpage")
 
-```
-st.subheader("Aliases")
-st.write(", ".join(char.get("Aliases", char.get("Alias", []))))
-st.subheader("Titles")
-for title in char["Titles"]:
-    st.write("- " + title)
-st.subheader("Allegiances and Culture")
-st.write(", ".join(char["Allegiances"]) + f" (Culture: {char['Culture']})")
-st.subheader("Born and Died")
-st.write(f"Born: {char['Born']}")
-st.write(f"Died: {char['Died']}")
-st.subheader("Parents")
-for relation, name in char["Parents"].items():
-    st.write(f"{relation}: {name}")
-st.subheader("Spouse(s)")
-spouses = char.get("Spouses") or char.get("Spouse")
-if isinstance(spouses, list):
-    st.write(", ".join(spouses))
-else:
-    st.write(spouses)
-st.subheader("Children")
-st.write(", ".join(char["Issue"]))
-st.subheader("Portrayed by")
-st.write(char["Portrayed by"])
-```
+option = st.selectbox("Select character or timeline to view:", ["Daemon", "Alicent", "Timeline"])
 
-character\_choice = st.sidebar.selectbox(
-"Choose a section",
-("Daemon Targaryen", "Alicent Hightower", "Timeline")
-)
+if option == "Daemon":
+    col1, col2 = st.columns([1, 2])
+    with col1:
+        st.image("data/daemon.gif", width=220)
+    with col2:
+        st.subheader("Daemon Targaryen")
+        st.markdown("""
+**Aliases:** Prince of the City, Lord Flea Bottom, The rogue prince  
+**Titles:** Prince, Ser, Commander of the City Watch, Master of coin, Master of laws, King of the Stepstones and the Narrow Sea, Lord of Runestone (claimant), Protector of the Realm  
+**Allegiances:** House Targaryen (Blacks)  
+**Race:** Valyrian  
+**Culture:** Crownlands  
+**Born:** 81 AC  
+**Died:** 130 AC (aged 49), the Gods Eye  
+**Father:** Baelon Targaryen  
+**Mother:** Alyssa Targaryen  
+**Spouses:** Lady Rhea Royce, Lady Laena Velaryon, Princess Rhaenyra Targaryen  
+**Issue:** Baela Targaryen, Rhaena Targaryen, Stillborn son, Aegon III Targaryen, Viserys II Targaryen, Visenya Targaryen  
+**Played by:** Matt Smith (TV series House of the Dragon)
+        """)
 
-if character\_choice == "Daemon Targaryen":
-show\_character(daemon)
-elif character\_choice == "Alicent Hightower":
-show\_character(alicent)
-else:
-st.header("Timeline")
-st.write("""
-**Daemon Targaryen Timeline:**
-\- Born in 81 AC.
-\- Held titles including Prince, Commander of the City Watch, and King of the Stepstones.
-\- Died at Gods Eye in 130 AC.
+elif option == "Alicent":
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("data/alicent1.gif", width=250)
+        st.image("data/alicent2.gif", width=250)
+    with col2:
+        st.subheader("Alicent Hightower")
+        st.markdown("""
+**Alias:** The Queen in Chains  
+**Titles:** Lady, Queen, Dowager Queen  
+**Allegiances:** House Hightower, House Targaryen (Greens)  
+**Culture:** Reach  
+**Born:** 88 AC  
+**Died:** 133 AC, King's Landing  
+**Father:** Otto Hightower  
+**Spouse:** King Viserys I Targaryen  
+**Issue:** Aegon II Targaryen, Helaena Targaryen, Aemond Targaryen, Daeron Targaryen  
+**Played by:** Olivia Cooke, Emily Carey (young) (TV series House of the Dragon)
+        """)
 
-```
-**Alicent Hightower Timeline:**
-- Born in 88 AC.
-- Married King Viserys I Targaryen.
-- Became Queen, later Dowager Queen.
-- Died in King's Landing in 133 AC.
-""")
-```
+else:  # Timeline
+    st.subheader("Timeline of Daemon Targaryen and Alicent Hightower")
+    st.markdown(timeline_css, unsafe_allow_html=True)
+    st.markdown(timeline_html, unsafe_allow_html=True)
