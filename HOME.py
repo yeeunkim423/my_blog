@@ -1,4 +1,5 @@
 import streamlit as st
+pip install --upgrade streamlit
 
 st.set_page_config(page_title="Daelicent Comfort Page", layout="centered")
 
