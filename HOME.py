@@ -6,8 +6,6 @@ st.caption("This is my comfort place for Daelicent")
 url = "https://github.com/yeeunkim423/my_blog/raw/main/images/alicent-daemon.jpg"
 st.image(url, caption="1X01 The Heirs of the Dragon", use_container_width=True)
 
-import streamlit as st
-
 st.header("About Them")
 
 people = [
@@ -24,8 +22,5 @@ for col, person in zip(cols, people):
         if person["Instagram"]:
             st.markdown(f"[📸 Instagram]({person['Instagram']})")
         else:
-            st.write("Instagram: Not available"
-
-        st.markdown(f"[Wikipedia]([person['Wikipedia']}")
-
-
+            st.write("Instagram: Not available")
+        st.markdown(f"[🌐 Wikipedia]({person['Wikipedia']})")
