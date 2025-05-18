@@ -57,8 +57,6 @@ for person in people:
 
         st.markdown("---")
 
-import streamlit as st
-
 if st.button("🔝 Go to Top"):
     st.experimental_rerun()
 
