@@ -2,8 +2,6 @@ import streamlit as st
 import base64
 import os
 
-st.set_page_config(page_title="House of the Dragon Fanpage", layout="wide")
-
 st.title("House of the Dragon Fanpage")
 
 IMAGE_FOLDER = "data"
@@ -92,6 +90,35 @@ def show_character(char):
     st.subheader("Portrayed by")
     st.write(char["Portrayed by"])
 
+def show_timeline():
+    st.header("Timeline")
+
+    daemon_events = [
+        ("81 AC", "Daemon Targaryen born"),
+        ("Held many titles", "Prince, Commander of the City Watch, King of the Stepstones"),
+        ("130 AC", "Died at Gods Eye (aged 49)")
+    ]
+
+    alicent_events = [
+        ("88 AC", "Alicent Hightower born"),
+        ("Unknown", "Married King Viserys I Targaryen"),
+        ("133 AC", "Died in King's Landing")
+    ]
+
+    st.subheader("Daemon Targaryen Timeline")
+    cols = st.columns(len(daemon_events))
+    for col, (year, event) in zip(cols, daemon_events):
+        with col:
+            st.markdown(f"### {year}")
+            st.write(event)
+
+    st.subheader("Alicent Hightower Timeline")
+    cols = st.columns(len(alicent_events))
+    for col, (year, event) in zip(cols, alicent_events):
+        with col:
+            st.markdown(f"### {year}")
+            st.write(event)
+
 character_choice = st.sidebar.selectbox(
     "Choose a section",
     ("Daemon Targaryen", "Alicent Hightower", "Timeline")
@@ -102,15 +129,4 @@ if character_choice == "Daemon Targaryen":
 elif character_choice == "Alicent Hightower":
     show_character(alicent)
 else:
-    st.header("Timeline")
-    st.markdown("""
-    ### Daemon Targaryen Timeline
-    - **81 AC:** Born.
-    - **130 AC:** Died at Gods Eye (aged 49).
-    
-    ### Alicent Hightower Timeline
-    - **88 AC:** Born.
-    - **Unknown:** Married King Viserys I Targaryen.
-    - **133 AC:** Died in King's Landing.
-    """)
-
+    show_timeline()
