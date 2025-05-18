@@ -124,7 +124,6 @@ elif character_choice == "Timeline":
         {"year": "133 AC", "headline": "Death of Alicent Hightower", "text": "Alicent died in King's Landing."},
     ]
 
-    # 연도 기준 정렬 (숫자 변환이 안되는 경우를 대비해)
     def year_to_int(year):
         try:
             return int(year.split()[0])
@@ -133,7 +132,57 @@ elif character_choice == "Timeline":
 
     events.sort(key=lambda e: year_to_int(e["year"]))
 
+    st.markdown("""
+    <style>
+    .timeline {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      padding-left: 30px;
+      border-left: 3px solid #4a90e2;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 5px;
+      width: 15px;
+      height: 15px;
+      background-color: #4a90e2;
+      border-radius: 50%;
+      border: 3px solid white;
+    }
+    .timeline-year {
+      font-weight: 700;
+      color: #4a90e2;
+      margin-bottom: 5px;
+    }
+    .timeline-headline {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+      color: #2c3e50;
+    }
+    .timeline-text {
+      margin: 5px 0 0 0;
+      color: #34495e;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div class="timeline">', unsafe_allow_html=True)
+
     for event in events:
-        st.markdown(f"### {event['year']} — {event['headline']}")
-        st.write(event['text'])
-        st.markdown("---")
+        st.markdown(f'''
+        <div class="timeline-item">
+            <div class="timeline-year">{event['year']}</div>
+            <h3 class="timeline-headline">{event['headline']}</h3>
+            <p class="timeline-text">{event['text']}</p>
+        </div>
+        ''', unsafe_allow_html=True)
+
+    st.markdown('</div>', unsafe_allow_html=True)
