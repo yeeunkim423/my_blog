@@ -57,30 +57,8 @@ for person in people:
 
         st.markdown("---")
 
-# (위에 너가 작성한 Streamlit 코드들...)
+import streamlit as st
 
-# 페이지 맨 아래 추가
-st.markdown("""
-    <style>
-    .back-to-top {
-        position: fixed;
-        bottom: 40px;
-        right: 30px;
-        background-color: #f0f2f6;
-        color: #444;
-        padding: 10px 16px;
-        border-radius: 10px;
-        border: none;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-        cursor: pointer;
-        z-index: 100;
-    }
-    .back-to-top:hover {
-        background-color: #e0e2e6;
-    }
-    </style>
+if st.button("🔝 Go to Top"):
+    st.experimental_rerun()
 
-    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-        🔝 Back to Top
-    </button>
-""", unsafe_allow_html=True)
