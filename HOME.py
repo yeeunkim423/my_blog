@@ -6,9 +6,7 @@ st.caption("This is my comfort place for Daelicent")
 url = "https://github.com/yeeunkim423/my_blog/raw/main/images/alicent-daemon.jpg"
 st.image(url, caption="1X01 The Heirs of the Dragon", use_container_width=True)
 
-st.header("Welcome to my page!")
-
-st.title("About Them")
+st.header("About Them")
 
 # 각자 SNS 링크 (예시)
 person1 = {
