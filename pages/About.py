@@ -132,56 +132,91 @@ elif character_choice == "Timeline":
 
     events.sort(key=lambda e: year_to_int(e["year"]))
 
-    st.markdown("""
+    # 각 이벤트 갯수로 점 간격 조절 가능
+    n = len(events)
+
+    st.markdown(f"""
     <style>
-    .timeline {
-      position: relative;
-      max-width: 700px;
-      margin: 0 auto;
-      padding-left: 30px;
-      border-left: 3px solid #4a90e2;
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 30px;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -10px;
-      top: 5px;
-      width: 15px;
-      height: 15px;
-      background-color: #4a90e2;
-      border-radius: 50%;
-      border: 3px solid white;
-    }
-    .timeline-year {
-      font-weight: 700;
-      color: #4a90e2;
-      margin-bottom: 5px;
-    }
-    .timeline-headline {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin: 0;
-      color: #2c3e50;
-    }
-    .timeline-text {
-      margin: 5px 0 0 0;
-      color: #34495e;
-    }
+    .timeline-container {{
+        width: 100%;
+        max-width: 900px;
+        margin: 40px auto;
+        position: relative;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }}
+    .timeline-line {{
+        position: relative;
+        height: 6px;
+        background: #4a90e2;
+        border-radius: 3px;
+        margin: 60px 0 100px 0;
+    }}
+    .timeline-point {{
+        position: absolute;
+        top: 50%;
+        width: 18px;
+        height: 18px;
+        background: white;
+        border: 4px solid #4a90e2;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+        z-index: 2;
+    }}
+    .timeline-point:hover {{
+        background-color: #4a90e2;
+        transform: translate(-50%, -50%) scale(1.3);
+        border-color: white;
+    }}
+    .timeline-label {{
+        position: absolute;
+        width: 200px;
+        font-size: 0.9rem;
+        color: #2c3e50;
+        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: default;
+    }}
+    /* 홀수번째 이벤트는 아래에, 짝수번째는 위에 배치 */
+    .label-below {{
+        top: 70px;
+    }}
+    .label-above {{
+        bottom: 120px;
+    }}
+    .timeline-year {{
+        font-weight: 700;
+        color: #4a90e2;
+        margin-bottom: 4px;
+    }}
+    .timeline-headline {{
+        font-weight: 600;
+        margin: 2px 0;
+    }}
+    .timeline-text {{
+        font-size: 0.85rem;
+        color: #555;
+        margin-top: 4px;
+    }}
     </style>
+
+    <div class="timeline-container">
+        <div class="timeline-line"></div>
+    """ + "\n".join(
+        f'''
+        <div class="timeline-point" style="left: {100*i/(n-1)}%;"></div>
+        <div class="timeline-label {'label-below' if i % 2 == 0 else 'label-above'}" style="left: {100*i/(n-1)}%;">
+            <div class="timeline-year">{events[i]['year']}</div>
+            <div class="timeline-headline">{events[i]['headline']}</div>
+            <div class="timeline-text">{events[i]['text']}</div>
+        </div>
+        ''' for i in range(n)
+    ) + """
+    </div>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div class="timeline">', unsafe_allow_html=True)
-
-    for event in events:
-        st.markdown(f'''
-        <div class="timeline-item">
-            <div class="timeline-year">{event['year']}</div>
-            <h3 class="timeline-headline">{event['headline']}</h3>
-            <p class="timeline-text">{event['text']}</p>
         </div>
         ''', unsafe_allow_html=True)
 
