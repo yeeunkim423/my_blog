@@ -3,7 +3,7 @@ import streamlit as st
 st.title("🍃 Comfort Place for Daelicent")
 st.caption("This is my comfort place for Daelicent")
 
-# 메인 이미지
+# 메인 이미지 (웹 이미지)
 url = "https://github.com/yeeunkim423/my_blog/raw/main/images/alicent-daemon.jpg"
 st.image(url, caption="1X01 The Heirs of the Dragon", use_container_width=True)
 
@@ -21,7 +21,7 @@ people = [
         "name": "Olivia Cooke",
         "Instagram": "https://www.instagram.com/livkatecooke/",
         "Wikipedia": "https://en.wikipedia.org/wiki/Olivia_Cooke",
-        "Image": "data/emily/gif"
+        "Image": "data/emily.gif"
     },
     {
         "name": "Matt Smith",
@@ -35,8 +35,12 @@ cols = st.columns(3)
 
 for col, person in zip(cols, people):
     with col:
-        st.image(person["Image"], caption=person["name"], use_column_width=True)
-        st.header(person["name"])
+        try:
+            st.image(person["Image"], caption=person["name"], use_container_width=True)
+        except:
+            st.warning(f"⚠️ Could not load image for {person['name']}")
+        
+        st.subheader(person["name"])
         if person["Instagram"]:
             st.markdown(f"[📸 Instagram]({person['Instagram']})")
         else:
