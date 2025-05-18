@@ -99,47 +99,18 @@ if character_choice == "Daemon Targaryen":
     show_character(daemon)
 elif character_choice == "Alicent Hightower":
     show_character(alicent)
-else: option == "Timeline":
+elif character_choice == "Timeline":
     st.header("Daemon & Alicent Timeline")
 
-    events = {
-        "events": [
-            {
-                "start_date": {"year": "81 AC"},
-                "text": {
-                    "headline": "Daemon Targaryen born",
-                    "text": "Daemon Targaryen was born in 81 AC."
-                }
-            },
-            {
-                "start_date": {"year": "130 AC"},
-                "text": {
-                    "headline": "Daemon dies",
-                    "text": "Daemon died at Gods Eye in 130 AC at age 49."
-                }
-            },
-            {
-                "start_date": {"year": "88 AC"},
-                "text": {
-                    "headline": "Alicent Hightower born",
-                    "text": "Alicent Hightower was born in 88 AC."
-                }
-            },
-            {
-                "start_date": {"year": "Unknown"},
-                "text": {
-                    "headline": "Alicent marries King Viserys I",
-                    "text": "Alicent became the wife of King Viserys I Targaryen."
-                }
-            },
-            {
-                "start_date": {"year": "133 AC"},
-                "text": {
-                    "headline": "Alicent dies",
-                    "text": "Alicent died in King's Landing in 133 AC."
-                }
-            }
-        ]
-    }
+    events = [
+        {"year": "81 AC", "headline": "Daemon Targaryen born", "text": "Daemon Targaryen was born in 81 AC."},
+        {"year": "130 AC", "headline": "Daemon dies", "text": "Daemon died at Gods Eye in 130 AC at age 49."},
+        {"year": "88 AC", "headline": "Alicent Hightower born", "text": "Alicent Hightower was born in 88 AC."},
+        {"year": "Unknown", "headline": "Alicent marries King Viserys I", "text": "Alicent became the wife of King Viserys I Targaryen."},
+        {"year": "133 AC", "headline": "Alicent dies", "text": "Alicent died in King's Landing in 133 AC."},
+    ]
 
-    timeline(events)
+    for event in events:
+        st.markdown(f"### {event['year']} — {event['headline']}")
+        st.write(event['text'])
+        st.markdown("---")
