@@ -53,5 +53,4 @@ for col, person in zip(cols, people):
         st.markdown(f"[🌐 Wikipedia]({person['Wikipedia']})")
 
         # 유튜브 영상
-        st.markdown("**📺 Favorite YouTube Video**")
         st.video(person["YouTube"])
