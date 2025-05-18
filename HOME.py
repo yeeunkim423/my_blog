@@ -36,7 +36,7 @@ cols = st.columns(3)
 for col, person in zip(cols, people):
     with col:
         try:
-            st.image(person["Image"], caption=person["name"], use_container_width=True)
+            st.image(person["Image"], use_container_width=True)
         except:
             st.warning(f"⚠️ Could not load image for {person['name']}")
         
