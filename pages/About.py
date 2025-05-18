@@ -2,13 +2,10 @@ import streamlit as st
 from PIL import Image
 import os
 
-# Page title
 st.title("House of the Dragon Fanpage")
 
-# Image folder path
 IMAGE_FOLDER = "data"
 
-# Daemon Targaryen data
 daemon = {
     "Name": "Daemon Targaryen",
     "Aliases": ["Prince of the City", "Lord Flea Bottom", "The rogue prince"],
@@ -41,7 +38,6 @@ daemon = {
     ]
 }
 
-# Alicent Hightower data
 alicent = {
     "Name": "Alicent Hightower",
     "Alias": ["The Queen in Chains"],
@@ -73,21 +69,19 @@ def load_image(filename):
         st.error(f"Error loading image: {filename}")
         return None
 
-# Function to display character info with images and timeline
 def show_character(char):
     st.header(char["Name"])
-    # Show images
     if "Image" in char:
         img = load_image(char["Image"])
         if img:
-            st.image(img, use_column_width=True)
+            st.image(img, use_container_width=True)
     elif "Images" in char:
         cols = st.columns(len(char["Images"]))
         for i, img_file in enumerate(char["Images"]):
             img = load_image(img_file)
             if img:
-                cols[i].image(img, use_column_width=True)
-    # Text info
+                cols[i].image(img, use_container_width=True)
+
     st.subheader("Aliases")
     st.write(", ".join(char.get("Aliases", char.get("Alias", []))))
     st.subheader("Titles")
@@ -111,19 +105,15 @@ def show_character(char):
     st.write(", ".join(char["Issue"]))
     st.subheader("Portrayed by")
     st.write(char["Portrayed by"])
-    
-    # Timeline section
     st.subheader("Timeline")
     for event in char.get("Timeline", []):
         st.write(f"- {event}")
 
-# Sidebar for character selection
 character_choice = st.sidebar.selectbox(
     "Choose a character",
     ("Daemon Targaryen", "Alicent Hightower")
 )
 
-# Display selected character info
 if character_choice == "Daemon Targaryen":
     show_character(daemon)
 else:
