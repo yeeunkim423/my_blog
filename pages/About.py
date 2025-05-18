@@ -1,154 +1,116 @@
 import streamlit as st
+import base64
+import os
 
-st.set_page_config(page_title="Daemon & Alicent Fanpage", layout="wide")
+st.set_page_config(page_title="House of the Dragon Fanpage", layout="wide")
 
-st.title("Daemon Targaryen & Alicent Hightower Fanpage")
+st.title("House of the Dragon Fanpage")
 
-option = st.selectbox(
-    "Select a section:",
-    ("Daemon", "Alicent", "Timeline")
+IMAGE_FOLDER = "data"
+
+daemon = {
+    "Name": "Daemon Targaryen",
+    "Aliases": ["Prince of the City", "Lord Flea Bottom", "The rogue prince"],
+    "Titles": [
+        "Prince",
+        "Ser",
+        "Commander of the City Watch",
+        "Master of coin",
+        "Master of laws",
+        "King of the Stepstones and the Narrow Sea",
+        "Lord of Runestone (claimant; briefly)",
+        "Protector of the Realm"
+    ],
+    "Allegiances": ["House Targaryen", "Blacks"],
+    "Culture": "Crownlands",
+    "Born": "81 AC",
+    "Died": "22nd day of the 5th moon of 130 AC (aged 49) at the Gods Eye",
+    "Parents": {"Father": "Baelon Targaryen", "Mother": "Alyssa Targaryen"},
+    "Spouses": ["Lady Rhea Royce", "Lady Laena Velaryon", "Princess Rhaenyra Targaryen"],
+    "Issue": ["Baela Targaryen", "Rhaena Targaryen", "Stillborn son", "Aegon III Targaryen", "Viserys II Targaryen", "Visenya Targaryen"],
+    "Portrayed by": "Matt Smith",
+    "Image": "daemon.gif",
+}
+
+alicent = {
+    "Name": "Alicent Hightower",
+    "Alias": ["The Queen in Chains"],
+    "Titles": ["Lady", "Queen", "Dowager Queen"],
+    "Allegiances": ["House Hightower", "House Targaryen", "Greens"],
+    "Culture": "Reach",
+    "Born": "88 AC",
+    "Died": "133 AC in King's Landing",
+    "Parents": {"Father": "Otto Hightower"},
+    "Spouse": "King Viserys I Targaryen",
+    "Issue": ["Aegon II Targaryen", "Helaena Targaryen", "Aemond Targaryen", "Daeron Targaryen"],
+    "Portrayed by": "Olivia Cooke / Emily Carey (young)",
+    "Images": ["alicent1.gif", "alicent2.gif"],
+}
+
+def show_gif(filename, max_width="100%"):
+    path = os.path.join(IMAGE_FOLDER, filename)
+    with open(path, "rb") as f:
+        data = f.read()
+    data_url = base64.b64encode(data).decode()
+    gif_html = f'<img src="data:image/gif;base64,{data_url}" alt="gif" style="max-width:{max_width};">'
+    st.markdown(gif_html, unsafe_allow_html=True)
+
+def show_character(char):
+    st.header(char["Name"])
+    if "Image" in char:
+        if char["Name"] == "Daemon Targaryen":
+            show_gif(char["Image"], max_width="60%")  # Daemon 이미지 크기 줄임
+        else:
+            show_gif(char["Image"])
+    elif "Images" in char:
+        cols = st.columns(len(char["Images"]))
+        for i, img_file in enumerate(char["Images"]):
+            with cols[i]:
+                show_gif(img_file)
+
+    st.subheader("Aliases")
+    st.write(", ".join(char.get("Aliases", char.get("Alias", []))))
+    st.subheader("Titles")
+    for title in char["Titles"]:
+        st.write("- " + title)
+    st.subheader("Allegiances and Culture")
+    st.write(", ".join(char["Allegiances"]) + f" (Culture: {char['Culture']})")
+    st.subheader("Born and Died")
+    st.write(f"Born: {char['Born']}")
+    st.write(f"Died: {char['Died']}")
+    st.subheader("Parents")
+    for relation, name in char["Parents"].items():
+        st.write(f"{relation}: {name}")
+    st.subheader("Spouse(s)")
+    spouses = char.get("Spouses") or char.get("Spouse")
+    if isinstance(spouses, list):
+        st.write(", ".join(spouses))
+    else:
+        st.write(spouses)
+    st.subheader("Children")
+    st.write(", ".join(char["Issue"]))
+    st.subheader("Portrayed by")
+    st.write(char["Portrayed by"])
+
+character_choice = st.sidebar.selectbox(
+    "Choose a section",
+    ("Daemon Targaryen", "Alicent Hightower", "Timeline")
 )
 
-if option == "Daemon":
-    col1, col2 = st.columns([1, 2])
-    with col1:
-        st.image("data/daemon.gif", width=220)
-    with col2:
-        st.header("Daemon Targaryen")
-        st.markdown("""
-**Aliases:** Prince of the City, Lord Flea Bottom, The rogue prince  
-**Titles:** Prince, Ser, Commander of the City Watch, Master of Coin, Master of Laws, King of the Stepstones and the Narrow Sea, Protector of the Realm  
-**Allegiances:** House Targaryen (Blacks)  
-**Born:** 81 AC  
-**Died:** 130 AC (aged 49) at Gods Eye  
-**Parents:** Baelon Targaryen & Alyssa Targaryen  
-**Spouses:** Lady Rhea Royce, Lady Laena Velaryon, Princess Rhaenyra Targaryen  
-**Issue:** Baela, Rhaena, Stillborn son, Aegon III, Viserys II, Visenya  
-**Played by:** Matt Smith
-""")
-
-elif option == "Alicent":
-    col1, col2 = st.columns(2)
-    with col1:
-        st.image("data/alicent1.gif", width=300)
-    with col2:
-        st.image("data/alicent2.gif", width=300)
-    st.header("Alicent Hightower")
+if character_choice == "Daemon Targaryen":
+    show_character(daemon)
+elif character_choice == "Alicent Hightower":
+    show_character(alicent)
+else:
+    st.header("Timeline")
     st.markdown("""
-**Alias:** The Queen in Chains  
-**Titles:** Lady, Queen, Dowager Queen  
-**Allegiances:** House Hightower, House Targaryen (Greens)  
-**Born:** 88 AC  
-**Died:** 133 AC in King's Landing  
-**Father:** Otto Hightower  
-**Spouse:** King Viserys I Targaryen  
-**Issue:** Aegon II, Helaena, Aemond, Daeron  
-**Played by:** Olivia Cooke / Emily Carey (young)
-""")
+    ### Daemon Targaryen Timeline
+    - **81 AC:** Born.
+    - **130 AC:** Died at Gods Eye (aged 49).
+    
+    ### Alicent Hightower Timeline
+    - **88 AC:** Born.
+    - **Unknown:** Married King Viserys I Targaryen.
+    - **133 AC:** Died in King's Landing.
+    """)
 
-elif option == "Timeline":
-    st.header("Daemon & Alicent Timeline")
-
-    timeline_css = """
-<style>
-.timeline {
-  position: relative;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 10px 0;
-}
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 4px;
-  background-color: #bbb;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -2px;
-}
-.container {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 50%;
-}
-.left {
-  left: 0;
-}
-.right {
-  left: 50%;
-}
-.left::before, .right::before {
-  content: " ";
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -17px;
-  background-color: white;
-  border: 4px solid #FF5733;
-  top: 15px;
-  border-radius: 50%;
-  z-index: 1;
-}
-.right::before {
-  left: -16px;
-}
-.content {
-  padding: 20px 30px;
-  background-color: #FFDDC1;
-  position: relative;
-  border-radius: 6px;
-}
-@media screen and (max-width: 600px) {
-  .timeline::after {
-    left: 31px;
-  }
-  .container {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
-  }
-  .container::before {
-    left: 60px;
-  }
-  .left, .right {
-    left: 0%;
-  }
-  .right::before {
-    left: 60px;
-  }
-}
-</style>
-"""
-
-    timeline_html = """
-<div class="timeline">
-  <div class="container left">
-    <div class="content">
-      <h3>81 AC - Daemon Born</h3>
-      <p>Daemon Targaryen was born.</p>
-    </div>
-  </div>
-  <div class="container right">
-    <div class="content">
-      <h3>88 AC - Alicent Born</h3>
-      <p>Alicent Hightower was born.</p>
-    </div>
-  </div>
-  <div class="container left">
-    <div class="content">
-      <h3>130 AC - Daemon Dies</h3>
-      <p>Daemon died at Gods Eye at age 49.</p>
-    </div>
-  </div>
-  <div class="container right">
-    <div class="content">
-      <h3>133 AC - Alicent Dies</h3>
-      <p>Alicent died in King's Landing.</p>
-    </div>
-  </div>
-</div>
-"""
-
-    st.markdown(timeline_css + timeline_html, unsafe_allow_html=True)
