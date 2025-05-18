@@ -13,66 +13,39 @@ option = st.selectbox(
 if option == "Daemon":
     col1, col2 = st.columns([1, 2])
     with col1:
-        st.markdown(
-            '<img src="data/daemon.gif" width="250" alt="Daemon GIF">',
-            unsafe_allow_html=True
-        )
+        st.image("data/daemon.gif", width=250)
     with col2:
         st.header("Daemon Targaryen")
         st.markdown("""
-        <style>
-        .desc {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #333333;
-        }
-        </style>
-        <div class="desc">
-        <p><strong>Aliases:</strong> Prince of the City, Lord Flea Bottom, The rogue prince</p>
-        <p><strong>Titles:</strong> Prince, Ser, Commander of the City Watch, Master of Coin, Master of Laws, King of the Stepstones and the Narrow Sea, Protector of the Realm</p>
-        <p><strong>Allegiances:</strong> House Targaryen (Blacks)</p>
-        <p><strong>Born:</strong> 81 AC</p>
-        <p><strong>Died:</strong> 130 AC (aged 49) at Gods Eye</p>
-        <p><strong>Parents:</strong> Baelon Targaryen & Alyssa Targaryen</p>
-        <p><strong>Spouses:</strong> Lady Rhea Royce, Lady Laena Velaryon, Princess Rhaenyra Targaryen</p>
-        <p><strong>Issue:</strong> Baela, Rhaena, Stillborn son, Aegon III, Viserys II, Visenya</p>
-        <p><strong>Played by:</strong> Matt Smith</p>
-        </div>
-        """, unsafe_allow_html=True)
+        **Aliases:** Prince of the City, Lord Flea Bottom, The rogue prince  
+        **Titles:** Prince, Ser, Commander of the City Watch, Master of Coin, Master of Laws, King of the Stepstones and the Narrow Sea, Protector of the Realm  
+        **Allegiances:** House Targaryen (Blacks)  
+        **Born:** 81 AC  
+        **Died:** 130 AC (aged 49) at Gods Eye  
+        **Parents:** Baelon Targaryen & Alyssa Targaryen  
+        **Spouses:** Lady Rhea Royce, Lady Laena Velaryon, Princess Rhaenyra Targaryen  
+        **Issue:** Baela, Rhaena, Stillborn son, Aegon III, Viserys II, Visenya  
+        **Played by:** Matt Smith
+        """)
 
 elif option == "Alicent":
     col1, col2 = st.columns([1, 1])
     with col1:
-        st.markdown(
-            '<img src="data/alicent1.gif" width="300" alt="Alicent GIF 1">',
-            unsafe_allow_html=True
-        )
+        st.image("data/alicent1.gif", width=300)
     with col2:
-        st.markdown(
-            '<img src="data/alicent2.gif" width="300" alt="Alicent GIF 2">',
-            unsafe_allow_html=True
-        )
+        st.image("data/alicent2.gif", width=300)
     st.header("Alicent Hightower")
     st.markdown("""
-    <style>
-    .desc {
-        font-size: 16px;
-        line-height: 1.6;
-        color: #333333;
-    }
-    </style>
-    <div class="desc">
-    <p><strong>Alias:</strong> The Queen in Chains</p>
-    <p><strong>Titles:</strong> Lady, Queen, Dowager Queen</p>
-    <p><strong>Allegiances:</strong> House Hightower, House Targaryen (Greens)</p>
-    <p><strong>Born:</strong> 88 AC</p>
-    <p><strong>Died:</strong> 133 AC in King's Landing</p>
-    <p><strong>Father:</strong> Otto Hightower</p>
-    <p><strong>Spouse:</strong> King Viserys I Targaryen</p>
-    <p><strong>Issue:</strong> Aegon II, Helaena, Aemond, Daeron</p>
-    <p><strong>Played by:</strong> Olivia Cooke / Emily Carey (young)</p>
-    </div>
-    """, unsafe_allow_html=True)
+    **Alias:** The Queen in Chains  
+    **Titles:** Lady, Queen, Dowager Queen  
+    **Allegiances:** House Hightower, House Targaryen (Greens)  
+    **Born:** 88 AC  
+    **Died:** 133 AC in King's Landing  
+    **Father:** Otto Hightower  
+    **Spouse:** King Viserys I Targaryen  
+    **Issue:** Aegon II, Helaena, Aemond, Daeron  
+    **Played by:** Olivia Cooke / Emily Carey (young)
+    """)
 
 elif option == "Timeline":
     st.header("Daemon & Alicent Timeline")
