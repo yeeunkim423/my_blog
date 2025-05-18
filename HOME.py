@@ -19,7 +19,6 @@ people = [
         "Wikipedia": "https://en.wikipedia.org/wiki/Emily_Carey",
         "Image": "data/emily2.gif",
         "YouTube": "https://youtu.be/FFfjGsfCC-g?si=lPZRXIlnHs16wXHT",
-        "Comment": "Emily talks about playing young Alicent Hightower."
     },
     {
         "name": "Olivia Cooke",
@@ -27,7 +26,6 @@ people = [
         "Wikipedia": "https://en.wikipedia.org/wiki/Olivia_Cooke",
         "Image": "data/emily.gif",
         "YouTube": "https://youtu.be/R_FGY3vm6Ok?si=In2Q6wLtDIKGvtIX",
-        "Comment": "Olivia shares her thoughts on becoming adult Alicent."
     },
     {
         "name": "Matt Smith",
@@ -35,7 +33,6 @@ people = [
         "Wikipedia": "https://en.wikipedia.org/wiki/Matt_Smith",
         "Image": "data/matt.gif",
         "YouTube": "https://youtu.be/kXkTiDNLChc?si=HUZ-X171jZMmES8q",
-        "Comment": "Matt reflects on playing Daemon Targaryen."
     },
 ]
 
@@ -56,7 +53,34 @@ for person in people:
 
         # 유튜브
         st.markdown("**📺 Favorite YouTube Video**")
-        st.caption(person["Comment"])
         st.video(person["YouTube"])
 
         st.markdown("---")
+
+# (위에 너가 작성한 Streamlit 코드들...)
+
+# 페이지 맨 아래 추가
+st.markdown("""
+    <style>
+    .back-to-top {
+        position: fixed;
+        bottom: 40px;
+        right: 30px;
+        background-color: #f0f2f6;
+        color: #444;
+        padding: 10px 16px;
+        border-radius: 10px;
+        border: none;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        cursor: pointer;
+        z-index: 100;
+    }
+    .back-to-top:hover {
+        background-color: #e0e2e6;
+    }
+    </style>
+
+    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+        🔝 Back to Top
+    </button>
+""", unsafe_allow_html=True)
