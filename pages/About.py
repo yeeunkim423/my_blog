@@ -90,35 +90,6 @@ def show_character(char):
     st.subheader("Portrayed by")
     st.write(char["Portrayed by"])
 
-def show_timeline():
-    st.header("Timeline")
-
-    daemon_events = [
-        ("81 AC", "Daemon Targaryen born"),
-        ("Held many titles", "Prince, Commander of the City Watch, King of the Stepstones"),
-        ("130 AC", "Died at Gods Eye (aged 49)")
-    ]
-
-    alicent_events = [
-        ("88 AC", "Alicent Hightower born"),
-        ("Unknown", "Married King Viserys I Targaryen"),
-        ("133 AC", "Died in King's Landing")
-    ]
-
-    st.subheader("Daemon Targaryen Timeline")
-    cols = st.columns(len(daemon_events))
-    for col, (year, event) in zip(cols, daemon_events):
-        with col:
-            st.markdown(f"### {year}")
-            st.write(event)
-
-    st.subheader("Alicent Hightower Timeline")
-    cols = st.columns(len(alicent_events))
-    for col, (year, event) in zip(cols, alicent_events):
-        with col:
-            st.markdown(f"### {year}")
-            st.write(event)
-
 character_choice = st.sidebar.selectbox(
     "Choose a section",
     ("Daemon Targaryen", "Alicent Hightower", "Timeline")
@@ -129,4 +100,26 @@ if character_choice == "Daemon Targaryen":
 elif character_choice == "Alicent Hightower":
     show_character(alicent)
 else:
-    show_timeline()
+    st.header("Timeline")
+    timeline_html = """
+    <div style="
+        background-color:#2f2f2f; 
+        color:#e0e0e0; 
+        border-radius:12px; 
+        padding:25px; 
+        box-shadow: 4px 4px 12px rgba(0,0,0,0.7);
+        line-height:1.6;
+        font-size:18px;
+        ">
+    <strong style="color:#f0c040;">Daemon Targaryen Timeline:</strong><br>
+    - Born in 81 AC.<br>
+    - Held titles including Prince, Commander of the City Watch, and King of the Stepstones.<br>
+    - Died at Gods Eye in 130 AC.<br><br>
+    <strong style="color:#f0c040;">Alicent Hightower Timeline:</strong><br>
+    - Born in 88 AC.<br>
+    - Married King Viserys I Targaryen.<br>
+    - Became Queen, later Dowager Queen.<br>
+    - Died in King's Landing in 133 AC.
+    </div>
+    """
+    st.markdown(timeline_html, unsafe_allow_html=True)
