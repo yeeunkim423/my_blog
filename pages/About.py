@@ -104,11 +104,34 @@ elif character_choice == "Timeline":
 
     events = [
         {"year": "81 AC", "headline": "Daemon Targaryen born", "text": "Daemon Targaryen was born in 81 AC."},
-        {"year": "130 AC", "headline": "Daemon dies", "text": "Daemon died at Gods Eye in 130 AC at age 49."},
         {"year": "88 AC", "headline": "Alicent Hightower born", "text": "Alicent Hightower was born in 88 AC."},
-        {"year": "Unknown", "headline": "Alicent marries King Viserys I", "text": "Alicent became the wife of King Viserys I Targaryen."},
-        {"year": "133 AC", "headline": "Alicent dies", "text": "Alicent died in King's Landing in 133 AC."},
+        {"year": "97 AC", "headline": "Daemon marries Lady Rhea Royce", "text": "Daemon married Lady Rhea Royce."},
+        {"year": "103-104 AC", "headline": "Daemon serves as Master of Coin and Master of Laws", "text": "Daemon briefly served as Master of Coin from 103 to 104 AC, and Master of Laws for six months after."},
+        {"year": "106 AC", "headline": "Viserys and Alicent's wedding & Daemon's Stepstones campaign", "text": (
+            "King Viserys I Targaryen married Alicent Hightower. "
+            "Daemon allied with Corlys Velaryon to wage war for the Stepstones, "
+            "leading an army with his dragon Caraxes." )},
+        {"year": "108 AC", "headline": "Daemon kills Craghas Drahar", "text": "Daemon made enemies in Lys, Myr, and Tyrosh and slew Craghas Drahar."},
+        {"year": "109 AC", "headline": "Daemon declares himself King of the Stepstones and Narrow Sea", "text": "After conquering most islands, Daemon proclaimed himself king."},
+        {"year": "111 AC", "headline": "Daemon returns to King's Landing", "text": "Bored with ruling, Daemon returned to the capital."},
+        {"year": "114 AC", "headline": "Princess Rhaenyra married", "text": "Princess Rhaenyra Targaryen got married."},
+        {"year": "115 AC", "headline": "Rhea Royce dies", "text": "Daemon's wife, Rhea Royce, died from a horse fall."},
+        {"year": "116 AC", "headline": "Birth of Baela and Rhaena Targaryen", "text": "Baela and Rhaena were born in Pentos."},
+        {"year": "120 AC", "headline": "Daemon marries Rhaenyra Targaryen", "text": "At age 39, Daemon married his niece Rhaenyra, the Princess of Dragonstone."},
+        {"year": "120 AC", "headline": "Laena Velaryon dies", "text": "Laena Velaryon, Daemon's wife, died."},
+        {"year": "129 AC", "headline": "Death of King Viserys I", "text": "King Viserys I Targaryen died in his sleep on the third day of the third moon."},
+        {"year": "130 AC", "headline": "Death of Daemon Targaryen", "text": "Daemon died at Gods Eye at age 49."},
+        {"year": "133 AC", "headline": "Death of Alicent Hightower", "text": "Alicent died in King's Landing."},
     ]
+
+    # 연도 기준 정렬 (숫자 변환이 안되는 경우를 대비해)
+    def year_to_int(year):
+        try:
+            return int(year.split()[0])
+        except:
+            return 0
+
+    events.sort(key=lambda e: year_to_int(e["year"]))
 
     for event in events:
         st.markdown(f"### {event['year']} — {event['headline']}")
