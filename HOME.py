@@ -6,32 +6,22 @@ st.caption("This is my comfort place for Daelicent")
 url = "https://github.com/yeeunkim423/my_blog/raw/main/images/alicent-daemon.jpg"
 st.image(url, caption="1X01 The Heirs of the Dragon", use_container_width=True)
 
+import streamlit as st
+
 st.header("About Them")
 
-# 각자 SNS 링크 (예시)
-person1 = {
-    "name": "Emily Carey",
-    "Instagram": "https://www.instagram.com/theemilycarey/",
-}
+people = [
+    {"name": "Emily Carey", "Instagram": "https://www.instagram.com/theemilycarey/"},
+    {"name": "Olivia Cooke", "Instagram": "https://www.instagram.com/livkatecooke/"},
+    {"name": "Matt Smith", "Instagram": None},
+]
 
-person2 = {
-    "name": "Olivia Cooke",
-    "Instagram": "https://www.instagram.com/livkatecooke/",
-}
+cols = st.columns(3)
 
-person3 = {
-  "name": "Matt Smith",
-}
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    st.header(person1["name"])
-    st.markdown(f"[📸 Instagram]({person1['Instagram']})")
-
-with col2:
-    st.header(person2["name"])
-    st.markdown(f"[📸 Instagram]({person2['Instagram']})")
-
-with col3:
-  st.header(person3["name"])
+for col, person in zip(cols, people):
+    with col:
+        st.header(person["name"])
+        if person["Instagram"]:
+            st.markdown(f"[📸 Instagram]({person['Instagram']})")
+        else:
+            st.write("Instagram: Not available")
