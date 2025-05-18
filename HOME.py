@@ -11,9 +11,9 @@ import streamlit as st
 st.header("About Them")
 
 people = [
-    {"name": "Emily Carey", "Instagram": "https://www.instagram.com/theemilycarey/"},
-    {"name": "Olivia Cooke", "Instagram": "https://www.instagram.com/livkatecooke/"},
-    {"name": "Matt Smith", "Instagram": None},
+    {"name": "Emily Carey", "Instagram": "https://www.instagram.com/theemilycarey/", "Wikipedia": "https://en.wikipedia.org/wiki/Emily_Carey"},
+    {"name": "Olivia Cooke", "Instagram": "https://www.instagram.com/livkatecooke/", "Wikipedia": "https://en.wikipedia.org/wiki/Olivia_Cooke"},
+    {"name": "Matt Smith", "Instagram": None, "Wikipedia": "https://en.wikipedia.org/wiki/Matt_Smith"},
 ]
 
 cols = st.columns(3)
@@ -24,4 +24,8 @@ for col, person in zip(cols, people):
         if person["Instagram"]:
             st.markdown(f"[📸 Instagram]({person['Instagram']})")
         else:
-            st.write("Instagram: Not available")
+            st.write("Instagram: Not available"
+
+        st.markdown(f"[Wikipedia]([person['Wikipedia']}")
+
+
