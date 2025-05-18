@@ -57,6 +57,6 @@ for person in people:
 
         st.markdown("---")
 
+# 맨 위로 올라가는 버튼
 if st.button("🔝 Go to Top"):
     st.experimental_rerun()
-
