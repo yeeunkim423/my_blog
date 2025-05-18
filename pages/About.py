@@ -132,7 +132,6 @@ elif character_choice == "Timeline":
 
     events.sort(key=lambda e: year_to_int(e["year"]))
 
-    # 각 이벤트 갯수로 점 간격 조절 가능
     n = len(events)
 
     st.markdown(f"""
@@ -179,7 +178,6 @@ elif character_choice == "Timeline":
         transform: translateX(-50%);
         cursor: default;
     }}
-    /* 홀수번째 이벤트는 아래에, 짝수번째는 위에 배치 */
     .label-below {{
         top: 70px;
     }}
@@ -216,8 +214,3 @@ elif character_choice == "Timeline":
     ) + """
     </div>
     """, unsafe_allow_html=True)
-
-        </div>
-        ''', unsafe_allow_html=True)
-
-    st.markdown('</div>', unsafe_allow_html=True)
