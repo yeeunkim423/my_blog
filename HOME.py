@@ -5,11 +5,9 @@ st.set_page_config(page_title="Daelicent Comfort Page", layout="centered")
 st.title("🍃 Comfort Place for Daelicent")
 st.caption("This is my comfort place for Daelicent")
 
-# 메인 이미지
 url = "https://github.com/yeeunkim423/my_blog/raw/main/images/alicent-daemon.jpg"
 st.image(url, caption="1X01 The Heirs of the Dragon", use_container_width=True)
 
-# 인물 정보
 st.header("About Them")
 
 people = [
@@ -36,7 +34,6 @@ people = [
     },
 ]
 
-# 배우별 정보 - expander 안에 표시
 for person in people:
     with st.expander(person["name"]):
         try:
@@ -44,19 +41,17 @@ for person in people:
         except:
             st.warning(f"⚠️ Could not load image for {person['name']}")
 
-        # 링크들
         if person["Instagram"]:
             st.markdown(f"[📸 Instagram]({person['Instagram']})")
         else:
             st.write("Instagram: Not available")
         st.markdown(f"[🌐 Wikipedia]({person['Wikipedia']})")
 
-        # 유튜브
         st.markdown("**📺 Favorite YouTube Video**")
         st.video(person["YouTube"])
 
         st.markdown("---")
 
-# 맨 위로 올라가는 버튼
+# 여기서만 rerun 호출
 if st.button("🔝 Go to Top"):
     st.experimental_rerun()
