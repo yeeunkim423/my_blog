@@ -52,5 +52,3 @@ for person in people:
 
         st.markdown("---")
 
-if st.button("🔝 Go to Top"):
-    st.experimental_rerun()
