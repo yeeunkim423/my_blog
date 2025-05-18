@@ -2,6 +2,7 @@ import streamlit as st
 import base64
 import os
 
+st.set_page_config(page_title="HOTD Fanpage", layout="wide")
 st.title("House of the Dragon Fanpage")
 
 IMAGE_FOLDER = "data"
@@ -56,10 +57,7 @@ def show_gif(filename, max_width="100%"):
 def show_character(char):
     st.header(char["Name"])
     if "Image" in char:
-        if char["Name"] == "Daemon Targaryen":
-            show_gif(char["Image"], max_width="60%")  # Daemon 이미지 크기 줄임
-        else:
-            show_gif(char["Image"])
+        show_gif(char["Image"], max_width="60%")
     elif "Images" in char:
         cols = st.columns(len(char["Images"]))
         for i, img_file in enumerate(char["Images"]):
@@ -95,10 +93,9 @@ character_choice = st.sidebar.selectbox(
     ("Daemon Targaryen", "Alicent Hightower", "Timeline")
 )
 
-if character_choice == "Daemon Targaryen":
-    show_character(daemon)
-elif character_choice == "Alicent Hightower":
-    show_character(alicent)
+if character_choice in ["Daemon Targaryen", "Alicent Hightower"]:
+    show_character(daemon if character_choice == "Daemon Targaryen" else alicent)
+
 elif character_choice == "Timeline":
     st.header("Daemon & Alicent Timeline")
 
@@ -106,22 +103,19 @@ elif character_choice == "Timeline":
         {"year": "81 AC", "headline": "Daemon Targaryen born", "text": "Daemon Targaryen was born in 81 AC."},
         {"year": "88 AC", "headline": "Alicent Hightower born", "text": "Alicent Hightower was born in 88 AC."},
         {"year": "97 AC", "headline": "Daemon marries Lady Rhea Royce", "text": "Daemon married Lady Rhea Royce."},
-        {"year": "103-104 AC", "headline": "Daemon serves as Master of Coin and Master of Laws", "text": "Daemon briefly served as Master of Coin from 103 to 104 AC, and Master of Laws for six months after."},
-        {"year": "106 AC", "headline": "Viserys and Alicent's wedding & Daemon's Stepstones campaign", "text": (
-            "King Viserys I Targaryen married Alicent Hightower. "
-            "Daemon allied with Corlys Velaryon to wage war for the Stepstones, "
-            "leading an army with his dragon Caraxes." )},
-        {"year": "108 AC", "headline": "Daemon kills Craghas Drahar", "text": "Daemon made enemies in Lys, Myr, and Tyrosh and slew Craghas Drahar."},
-        {"year": "109 AC", "headline": "Daemon declares himself King of the Stepstones and Narrow Sea", "text": "After conquering most islands, Daemon proclaimed himself king."},
-        {"year": "111 AC", "headline": "Daemon returns to King's Landing", "text": "Bored with ruling, Daemon returned to the capital."},
-        {"year": "114 AC", "headline": "Princess Rhaenyra married", "text": "Princess Rhaenyra Targaryen got married."},
-        {"year": "115 AC", "headline": "Rhea Royce dies", "text": "Daemon's wife, Rhea Royce, died from a horse fall."},
-        {"year": "116 AC", "headline": "Birth of Baela and Rhaena Targaryen", "text": "Baela and Rhaena were born in Pentos."},
-        {"year": "120 AC", "headline": "Daemon marries Rhaenyra Targaryen", "text": "At age 39, Daemon married his niece Rhaenyra, the Princess of Dragonstone."},
-        {"year": "120 AC", "headline": "Laena Velaryon dies", "text": "Laena Velaryon, Daemon's wife, died."},
-        {"year": "129 AC", "headline": "Death of King Viserys I", "text": "King Viserys I Targaryen died in his sleep on the third day of the third moon."},
-        {"year": "130 AC", "headline": "Death of Daemon Targaryen", "text": "Daemon died at Gods Eye at age 49."},
-        {"year": "133 AC", "headline": "Death of Alicent Hightower", "text": "Alicent died in King's Landing."},
+        {"year": "103-104 AC", "headline": "Daemon serves as Master of Coin and Master of Laws", "text": "Daemon briefly served as Master of Coin and Master of Laws."},
+        {"year": "106 AC", "headline": "Viserys and Alicent's wedding & Daemon's Stepstones campaign", "text": "King Viserys I married Alicent. Daemon fought in the Stepstones."},
+        {"year": "108 AC", "headline": "Daemon kills Craghas Drahar", "text": "Daemon slew Craghas Drahar."},
+        {"year": "109 AC", "headline": "Daemon declares himself King of the Stepstones", "text": "Daemon proclaimed himself king of the Stepstones."},
+        {"year": "111 AC", "headline": "Daemon returns to King's Landing", "text": "Daemon returned from the Stepstones."},
+        {"year": "114 AC", "headline": "Princess Rhaenyra married", "text": "Rhaenyra Targaryen was married."},
+        {"year": "115 AC", "headline": "Rhea Royce dies", "text": "Daemon's wife Rhea died."},
+        {"year": "116 AC", "headline": "Baela and Rhaena born", "text": "Baela and Rhaena were born."},
+        {"year": "120 AC", "headline": "Daemon marries Rhaenyra", "text": "Daemon married Rhaenyra."},
+        {"year": "120 AC", "headline": "Laena Velaryon dies", "text": "Laena Velaryon died."},
+        {"year": "129 AC", "headline": "King Viserys dies", "text": "King Viserys I died."},
+        {"year": "130 AC", "headline": "Daemon dies", "text": "Daemon died at the Gods Eye."},
+        {"year": "133 AC", "headline": "Alicent dies", "text": "Alicent Hightower died in King's Landing."},
     ]
 
     def year_to_int(year):
@@ -131,17 +125,16 @@ elif character_choice == "Timeline":
             return 0
 
     events.sort(key=lambda e: year_to_int(e["year"]))
-
     n = len(events)
 
+    # HTML + CSS timeline
     st.markdown(f"""
     <style>
     .timeline-container {{
         width: 100%;
-        max-width: 900px;
+        max-width: 1000px;
         margin: 40px auto;
         position: relative;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }}
     .timeline-line {{
         position: relative;
@@ -159,14 +152,7 @@ elif character_choice == "Timeline":
         border: 4px solid #4a90e2;
         border-radius: 50%;
         transform: translate(-50%, -50%);
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.3s;
         z-index: 2;
-    }}
-    .timeline-point:hover {{
-        background-color: #4a90e2;
-        transform: translate(-50%, -50%) scale(1.3);
-        border-color: white;
     }}
     .timeline-label {{
         position: absolute;
@@ -176,28 +162,12 @@ elif character_choice == "Timeline":
         text-align: center;
         left: 50%;
         transform: translateX(-50%);
-        cursor: default;
     }}
-    .label-below {{
-        top: 70px;
-    }}
-    .label-above {{
-        bottom: 120px;
-    }}
-    .timeline-year {{
-        font-weight: 700;
-        color: #4a90e2;
-        margin-bottom: 4px;
-    }}
-    .timeline-headline {{
-        font-weight: 600;
-        margin: 2px 0;
-    }}
-    .timeline-text {{
-        font-size: 0.85rem;
-        color: #555;
-        margin-top: 4px;
-    }}
+    .label-below {{ top: 70px; }}
+    .label-above {{ bottom: 120px; }}
+    .timeline-year {{ font-weight: bold; color: #4a90e2; }}
+    .timeline-headline {{ font-weight: 600; }}
+    .timeline-text {{ font-size: 0.85rem; color: #555; }}
     </style>
 
     <div class="timeline-container">
@@ -205,12 +175,10 @@ elif character_choice == "Timeline":
     """ + "\n".join(
         f'''
         <div class="timeline-point" style="left: {100*i/(n-1)}%;"></div>
-        <div class="timeline-label {'label-below' if i % 2 == 0 else 'label-above'}" style="left: {100*i/(n-1)}%;">
-            <div class="timeline-year">{events[i]['year']}</div>
-            <div class="timeline-headline">{events[i]['headline']}</div>
-            <div class="timeline-text">{events[i]['text']}</div>
+        <div class="timeline-label {'label-below' if i%2==0 else 'label-above'}" style="left: {100*i/(n-1)}%;">
+            <div class="timeline-year">{event["year"]}</div>
+            <div class="timeline-headline">{event["headline"]}</div>
+            <div class="timeline-text">{event["text"]}</div>
         </div>
-        ''' for i in range(n)
-    ) + """
-    </div>
-    """, unsafe_allow_html=True)
+        ''' for i, event in enumerate(events)
+    ) + "</div>", unsafe_allow_html=True)
