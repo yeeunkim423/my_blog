@@ -1,5 +1,4 @@
 import streamlit as st
-pip install --upgrade streamlit
 
 st.set_page_config(page_title="Daelicent Comfort Page", layout="centered")
 
@@ -53,6 +52,5 @@ for person in people:
 
         st.markdown("---")
 
-# 여기서만 rerun 호출
 if st.button("🔝 Go to Top"):
     st.experimental_rerun()
