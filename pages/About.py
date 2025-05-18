@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image
+import base64
 import os
 
 st.title("House of the Dragon Fanpage")
@@ -28,14 +28,6 @@ daemon = {
     "Issue": ["Baela Targaryen", "Rhaena Targaryen", "Stillborn son", "Aegon III Targaryen", "Viserys II Targaryen", "Visenya Targaryen"],
     "Portrayed by": "Matt Smith",
     "Image": "daemon.gif",
-    "Timeline": [
-        "81 AC: Born to Baelon and Alyssa Targaryen",
-        "Served as Commander of the City Watch",
-        "Claimed Lordship of Runestone briefly",
-        "Married three times: Lady Rhea Royce, Lady Laena Velaryon, Princess Rhaenyra Targaryen",
-        "Became King of the Stepstones and the Narrow Sea",
-        "130 AC: Died at the Gods Eye"
-    ]
 }
 
 alicent = {
@@ -51,36 +43,25 @@ alicent = {
     "Issue": ["Aegon II Targaryen", "Helaena Targaryen", "Aemond Targaryen", "Daeron Targaryen"],
     "Portrayed by": "Olivia Cooke / Emily Carey (young)",
     "Images": ["alicent1.gif", "alicent2.gif"],
-    "Timeline": [
-        "88 AC: Born to Otto Hightower",
-        "Married King Viserys I Targaryen",
-        "Mother of four: Aegon II, Helaena, Aemond, Daeron",
-        "Played a key role in the Greens faction during the Targaryen civil war",
-        "133 AC: Died in King's Landing"
-    ]
 }
 
-def load_image(filename):
+def show_gif(filename):
     path = os.path.join(IMAGE_FOLDER, filename)
-    try:
-        img = Image.open(path)
-        return img
-    except Exception as e:
-        st.error(f"Error loading image: {filename}")
-        return None
+    with open(path, "rb") as f:
+        data = f.read()
+    data_url = base64.b64encode(data).decode()
+    gif_html = f'<img src="data:image/gif;base64,{data_url}" alt="gif" style="max-width:100%;">'
+    st.markdown(gif_html, unsafe_allow_html=True)
 
 def show_character(char):
     st.header(char["Name"])
     if "Image" in char:
-        img = load_image(char["Image"])
-        if img:
-            st.image(img, use_container_width=True)
+        show_gif(char["Image"])
     elif "Images" in char:
         cols = st.columns(len(char["Images"]))
         for i, img_file in enumerate(char["Images"]):
-            img = load_image(img_file)
-            if img:
-                cols[i].image(img, use_container_width=True)
+            with cols[i]:
+                show_gif(img_file)
 
     st.subheader("Aliases")
     st.write(", ".join(char.get("Aliases", char.get("Alias", []))))
@@ -105,9 +86,6 @@ def show_character(char):
     st.write(", ".join(char["Issue"]))
     st.subheader("Portrayed by")
     st.write(char["Portrayed by"])
-    st.subheader("Timeline")
-    for event in char.get("Timeline", []):
-        st.write(f"- {event}")
 
 character_choice = st.sidebar.selectbox(
     "Choose a character",
