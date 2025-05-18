@@ -1,10 +1,9 @@
 import streamlit as st
 
+# Configure the page
+st.set_page_config(page_title="🎧 Daelicent Playlist", layout='wide')
 
-st.title("🎧 Daelicent Playlist")
-st.caption("A soundtrack for Daelicent")
-
-     
+# Define the songs data
 songs = {
     "Lover, You Should’ve Come Over - Jeff Buckley": {
         "url": "https://youtu.be/HxfE6PJmGS8",
@@ -545,12 +544,21 @@ Take me back to the night we met
     }
 }
 
-selected_song = st.radio("Choose a song", list(songs.keys()))
+# App title and description
+st.title("🎧 Daelicent Playlist")
+st.caption("A soundtrack for Daelicent")
 
+# Sidebar for song selection
+st.sidebar.title("Song Selector")
+selected_song = st.sidebar.radio("Choose a song", list(songs.keys()))
+
+# Display song information
 st.subheader(selected_song)
 st.video(songs[selected_song]['url'])
 
+# Display song lyrics in a collapsible section
 if "lyrics" in songs[selected_song]:
-    st.markdown("**Lyrics:**")
-    st.markdown(songs[selected_song]["lyrics"])
+    with st.expander("Lyrics"):
+        st.markdown(songs[selected_song]["lyrics"])
 
+# Optional: Add additional metadata or features here
