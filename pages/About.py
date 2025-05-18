@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_timeline import timeline
 
 st.set_page_config(page_title="Daemon & Alicent Fanpage", layout="wide")
 
@@ -13,7 +12,7 @@ option = st.selectbox(
 if option == "Daemon":
     col1, col2 = st.columns([1, 2])
     with col1:
-        st.image("data/daemon.gif", width=250)
+        st.image("data/daemon.gif", width=220)
     with col2:
         st.header("Daemon Targaryen")
         st.markdown("""
@@ -29,7 +28,7 @@ if option == "Daemon":
         """)
 
 elif option == "Alicent":
-    col1, col2 = st.columns([1, 1])
+    col1, col2 = st.columns(2)
     with col1:
         st.image("data/alicent1.gif", width=300)
     with col2:
@@ -50,44 +49,22 @@ elif option == "Alicent":
 elif option == "Timeline":
     st.header("Daemon & Alicent Timeline")
 
-    events = {
-        "events": [
-            {
-                "start_date": {"year": "81 AC"},
-                "text": {
-                    "headline": "Daemon Targaryen born",
-                    "text": "Daemon Targaryen was born in 81 AC."
-                }
-            },
-            {
-                "start_date": {"year": "130 AC"},
-                "text": {
-                    "headline": "Daemon dies",
-                    "text": "Daemon died at Gods Eye in 130 AC at age 49."
-                }
-            },
-            {
-                "start_date": {"year": "88 AC"},
-                "text": {
-                    "headline": "Alicent Hightower born",
-                    "text": "Alicent Hightower was born in 88 AC."
-                }
-            },
-            {
-                "start_date": {"year": "Unknown"},
-                "text": {
-                    "headline": "Alicent marries King Viserys I",
-                    "text": "Alicent became the wife of King Viserys I Targaryen."
-                }
-            },
-            {
-                "start_date": {"year": "133 AC"},
-                "text": {
-                    "headline": "Alicent dies",
-                    "text": "Alicent died in King's Landing in 133 AC."
-                }
-            }
-        ]
+    # 타임라인 스타일 CSS
+    timeline_css = """
+    <style>
+    .timeline {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 10px 0;
     }
-
-    timeline(events)
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: #bbb;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
