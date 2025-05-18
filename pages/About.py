@@ -99,54 +99,47 @@ if character_choice == "Daemon Targaryen":
     show_character(daemon)
 elif character_choice == "Alicent Hightower":
     show_character(alicent)
-else:
-    st.header("Timeline")
+else: option == "Timeline":
+    st.header("Daemon & Alicent Timeline")
 
-    daemon_events = [
-        "Born in 81 AC.",
-        "Held titles including Prince, Commander of the City Watch, and King of the Stepstones.",
-        "Died at Gods Eye in 130 AC."
-    ]
+    events = {
+        "events": [
+            {
+                "start_date": {"year": "81 AC"},
+                "text": {
+                    "headline": "Daemon Targaryen born",
+                    "text": "Daemon Targaryen was born in 81 AC."
+                }
+            },
+            {
+                "start_date": {"year": "130 AC"},
+                "text": {
+                    "headline": "Daemon dies",
+                    "text": "Daemon died at Gods Eye in 130 AC at age 49."
+                }
+            },
+            {
+                "start_date": {"year": "88 AC"},
+                "text": {
+                    "headline": "Alicent Hightower born",
+                    "text": "Alicent Hightower was born in 88 AC."
+                }
+            },
+            {
+                "start_date": {"year": "Unknown"},
+                "text": {
+                    "headline": "Alicent marries King Viserys I",
+                    "text": "Alicent became the wife of King Viserys I Targaryen."
+                }
+            },
+            {
+                "start_date": {"year": "133 AC"},
+                "text": {
+                    "headline": "Alicent dies",
+                    "text": "Alicent died in King's Landing in 133 AC."
+                }
+            }
+        ]
+    }
 
-    alicent_events = [
-        "Born in 88 AC.",
-        "Married King Viserys I Targaryen.",
-        "Became Queen, later Dowager Queen.",
-        "Died in King's Landing in 133 AC."
-    ]
-
-    st.subheader("Daemon Targaryen Timeline")
-    for i, event in enumerate(daemon_events):
-        cols = st.columns([1,4,1])
-        if i % 2 == 0:
-            with cols[0]:
-                st.markdown(f'<div style="background:#f0c040; color:#000; padding:10px; border-radius:8px;">{event}</div>', unsafe_allow_html=True)
-            with cols[1]:
-                st.write("")
-            with cols[2]:
-                st.write("")
-        else:
-            with cols[0]:
-                st.write("")
-            with cols[1]:
-                st.write("")
-            with cols[2]:
-                st.markdown(f'<div style="background:#f0c040; color:#000; padding:10px; border-radius:8px;">{event}</div>', unsafe_allow_html=True)
-
-    st.subheader("Alicent Hightower Timeline")
-    for i, event in enumerate(alicent_events):
-        cols = st.columns([1,4,1])
-        if i % 2 == 0:
-            with cols[2]:
-                st.markdown(f'<div style="background:#d94f4f; color:#fff; padding:10px; border-radius:8px;">{event}</div>', unsafe_allow_html=True)
-            with cols[0]:
-                st.write("")
-            with cols[1]:
-                st.write("")
-        else:
-            with cols[0]:
-                st.write("")
-            with cols[1]:
-                st.write("")
-            with cols[2]:
-                st.markdown(f'<div style="background:#d94f4f; color:#fff; padding:10px; border-radius:8px;">{event}</div>', unsafe_allow_html=True)
+    timeline(events)
