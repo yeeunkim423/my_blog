@@ -101,25 +101,52 @@ elif character_choice == "Alicent Hightower":
     show_character(alicent)
 else:
     st.header("Timeline")
-    timeline_html = """
-    <div style="
-        background-color:#2f2f2f; 
-        color:#e0e0e0; 
-        border-radius:12px; 
-        padding:25px; 
-        box-shadow: 4px 4px 12px rgba(0,0,0,0.7);
-        line-height:1.6;
-        font-size:18px;
-        ">
-    <strong style="color:#f0c040;">Daemon Targaryen Timeline:</strong><br>
-    - Born in 81 AC.<br>
-    - Held titles including Prince, Commander of the City Watch, and King of the Stepstones.<br>
-    - Died at Gods Eye in 130 AC.<br><br>
-    <strong style="color:#f0c040;">Alicent Hightower Timeline:</strong><br>
-    - Born in 88 AC.<br>
-    - Married King Viserys I Targaryen.<br>
-    - Became Queen, later Dowager Queen.<br>
-    - Died in King's Landing in 133 AC.
-    </div>
-    """
-    st.markdown(timeline_html, unsafe_allow_html=True)
+
+    daemon_events = [
+        "Born in 81 AC.",
+        "Held titles including Prince, Commander of the City Watch, and King of the Stepstones.",
+        "Died at Gods Eye in 130 AC."
+    ]
+
+    alicent_events = [
+        "Born in 88 AC.",
+        "Married King Viserys I Targaryen.",
+        "Became Queen, later Dowager Queen.",
+        "Died in King's Landing in 133 AC."
+    ]
+
+    st.subheader("Daemon Targaryen Timeline")
+    for i, event in enumerate(daemon_events):
+        cols = st.columns([1,4,1])
+        if i % 2 == 0:
+            with cols[0]:
+                st.markdown(f'<div style="background:#f0c040; color:#000; padding:10px; border-radius:8px;">{event}</div>', unsafe_allow_html=True)
+            with cols[1]:
+                st.write("")
+            with cols[2]:
+                st.write("")
+        else:
+            with cols[0]:
+                st.write("")
+            with cols[1]:
+                st.write("")
+            with cols[2]:
+                st.markdown(f'<div style="background:#f0c040; color:#000; padding:10px; border-radius:8px;">{event}</div>', unsafe_allow_html=True)
+
+    st.subheader("Alicent Hightower Timeline")
+    for i, event in enumerate(alicent_events):
+        cols = st.columns([1,4,1])
+        if i % 2 == 0:
+            with cols[2]:
+                st.markdown(f'<div style="background:#d94f4f; color:#fff; padding:10px; border-radius:8px;">{event}</div>', unsafe_allow_html=True)
+            with cols[0]:
+                st.write("")
+            with cols[1]:
+                st.write("")
+        else:
+            with cols[0]:
+                st.write("")
+            with cols[1]:
+                st.write("")
+            with cols[2]:
+                st.markdown(f'<div style="background:#d94f4f; color:#fff; padding:10px; border-radius:8px;">{event}</div>', unsafe_allow_html=True)
