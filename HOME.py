@@ -34,21 +34,24 @@ people = [
     },
 ]
 
-for person in people:
-    with st.expander(person["name"]):
-        try:
-            st.image(person["Image"], caption=person["name"], use_container_width=True)
-        except:
-            st.warning(f"⚠️ Could not load image for {person['name']}")
+cols = st.columns(3)
 
-        if person["Instagram"]:
-            st.markdown(f"[📸 Instagram]({person['Instagram']})")
-        else:
-            st.write("Instagram: Not available")
-        st.markdown(f"[🌐 Wikipedia]({person['Wikipedia']})")
+for col, person in zip(cols, people):
+    with col:
+        with st.expander(person["name"]):
+            try:
+                st.image(person["Image"], caption=person["name"], use_container_width=True)
+            except:
+                st.warning(f"⚠️ Could not load image for {person['name']}")
 
-        st.markdown("**📺 Favorite YouTube Video**")
-        st.video(person["YouTube"])
+            if person["Instagram"]:
+                st.markdown(f"[📸 Instagram]({person['Instagram']})")
+            else:
+                st.write("Instagram: Not available")
+            st.markdown(f"[🌐 Wikipedia]({person['Wikipedia']})")
 
-        st.markdown("---")
+            st.markdown("**📺 Favorite YouTube Video**")
+            st.video(person["YouTube"])
+
+            st.markdown("---")
 
