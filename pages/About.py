@@ -1,7 +1,12 @@
 import streamlit as st
+from PIL import Image
+import os
 
 # Page title
 st.title("House of the Dragon Fanpage")
+
+# Image folder path
+IMAGE_FOLDER = "data"
 
 # Daemon Targaryen data
 daemon = {
@@ -24,7 +29,16 @@ daemon = {
     "Parents": {"Father": "Baelon Targaryen", "Mother": "Alyssa Targaryen"},
     "Spouses": ["Lady Rhea Royce", "Lady Laena Velaryon", "Princess Rhaenyra Targaryen"],
     "Issue": ["Baela Targaryen", "Rhaena Targaryen", "Stillborn son", "Aegon III Targaryen", "Viserys II Targaryen", "Visenya Targaryen"],
-    "Portrayed by": "Matt Smith"
+    "Portrayed by": "Matt Smith",
+    "Image": "daemon.gif",
+    "Timeline": [
+        "81 AC: Born to Baelon and Alyssa Targaryen",
+        "Served as Commander of the City Watch",
+        "Claimed Lordship of Runestone briefly",
+        "Married three times: Lady Rhea Royce, Lady Laena Velaryon, Princess Rhaenyra Targaryen",
+        "Became King of the Stepstones and the Narrow Sea",
+        "130 AC: Died at the Gods Eye"
+    ]
 }
 
 # Alicent Hightower data
@@ -39,12 +53,41 @@ alicent = {
     "Parents": {"Father": "Otto Hightower"},
     "Spouse": "King Viserys I Targaryen",
     "Issue": ["Aegon II Targaryen", "Helaena Targaryen", "Aemond Targaryen", "Daeron Targaryen"],
-    "Portrayed by": "Olivia Cooke / Emily Carey (young)"
+    "Portrayed by": "Olivia Cooke / Emily Carey (young)",
+    "Images": ["alicent1.gif", "alicent2.gif"],
+    "Timeline": [
+        "88 AC: Born to Otto Hightower",
+        "Married King Viserys I Targaryen",
+        "Mother of four: Aegon II, Helaena, Aemond, Daeron",
+        "Played a key role in the Greens faction during the Targaryen civil war",
+        "133 AC: Died in King's Landing"
+    ]
 }
 
-# Function to display character info
+def load_image(filename):
+    path = os.path.join(IMAGE_FOLDER, filename)
+    try:
+        img = Image.open(path)
+        return img
+    except Exception as e:
+        st.error(f"Error loading image: {filename}")
+        return None
+
+# Function to display character info with images and timeline
 def show_character(char):
     st.header(char["Name"])
+    # Show images
+    if "Image" in char:
+        img = load_image(char["Image"])
+        if img:
+            st.image(img, use_column_width=True)
+    elif "Images" in char:
+        cols = st.columns(len(char["Images"]))
+        for i, img_file in enumerate(char["Images"]):
+            img = load_image(img_file)
+            if img:
+                cols[i].image(img, use_column_width=True)
+    # Text info
     st.subheader("Aliases")
     st.write(", ".join(char.get("Aliases", char.get("Alias", []))))
     st.subheader("Titles")
@@ -59,14 +102,20 @@ def show_character(char):
     for relation, name in char["Parents"].items():
         st.write(f"{relation}: {name}")
     st.subheader("Spouse(s)")
-    if isinstance(char.get("Spouses") or char.get("Spouse"), list):
-        st.write(", ".join(char.get("Spouses") or char.get("Spouse")))
+    spouses = char.get("Spouses") or char.get("Spouse")
+    if isinstance(spouses, list):
+        st.write(", ".join(spouses))
     else:
-        st.write(char.get("Spouses") or char.get("Spouse"))
+        st.write(spouses)
     st.subheader("Children")
     st.write(", ".join(char["Issue"]))
     st.subheader("Portrayed by")
     st.write(char["Portrayed by"])
+    
+    # Timeline section
+    st.subheader("Timeline")
+    for event in char.get("Timeline", []):
+        st.write(f"- {event}")
 
 # Sidebar for character selection
 character_choice = st.sidebar.selectbox(
