@@ -7,7 +7,7 @@ st.caption("House of the Dragon 드라마의 알리센트 하이터워와 다에
 
 # 알리센트 소개
 with st.expander("알리센트 하이타워"):
-    st.image("data/emily.gif", "data/emily2.gif",
+    st.image("data/emily2.gif",
              caption="알리센트 하이타워 (House of the Dragon)", use_container_width=True)
     st.markdown("""
     **배우:** 에밀리 캐리(어린 시절), 올리비아 쿡(성인 시절)  
