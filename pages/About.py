@@ -45,18 +45,21 @@ alicent = {
     "Images": ["alicent1.gif", "alicent2.gif"],
 }
 
-def show_gif(filename):
+def show_gif(filename, max_width="100%"):
     path = os.path.join(IMAGE_FOLDER, filename)
     with open(path, "rb") as f:
         data = f.read()
     data_url = base64.b64encode(data).decode()
-    gif_html = f'<img src="data:image/gif;base64,{data_url}" alt="gif" style="max-width:100%;">'
+    gif_html = f'<img src="data:image/gif;base64,{data_url}" alt="gif" style="max-width:{max_width};">'
     st.markdown(gif_html, unsafe_allow_html=True)
 
 def show_character(char):
     st.header(char["Name"])
     if "Image" in char:
-        show_gif(char["Image"])
+        if char["Name"] == "Daemon Targaryen":
+            show_gif(char["Image"], max_width="60%")  # Daemon 이미지 크기 줄임
+        else:
+            show_gif(char["Image"])
     elif "Images" in char:
         cols = st.columns(len(char["Images"]))
         for i, img_file in enumerate(char["Images"]):
@@ -88,11 +91,26 @@ def show_character(char):
     st.write(char["Portrayed by"])
 
 character_choice = st.sidebar.selectbox(
-    "Choose a character",
-    ("Daemon Targaryen", "Alicent Hightower")
+    "Choose a section",
+    ("Daemon Targaryen", "Alicent Hightower", "Timeline")
 )
 
 if character_choice == "Daemon Targaryen":
     show_character(daemon)
-else:
+elif character_choice == "Alicent Hightower":
     show_character(alicent)
+else:
+    st.header("Timeline")
+    st.write("""
+    **Daemon Targaryen Timeline:**
+    - Born in 81 AC.
+    - Held titles including Prince, Commander of the City Watch, and King of the Stepstones.
+    - Died at Gods Eye in 130 AC.
+    
+    **Alicent Hightower Timeline:**
+    - Born in 88 AC.
+    - Married King Viserys I Targaryen.
+    - Became Queen, later Dowager Queen.
+    - Died in King's Landing in 133 AC.
+    """)
+
