@@ -552,5 +552,5 @@ selected_song = st.selectbox("Select a song", list(songs.keys()))
 # 선택된 노래의 정보 표시
 if selected_song:
     st.subheader(selected_song)
-    st.markdown(f"[▶️ Watch on YouTube]({songs[selected_song]['url']})", unsafe_allow_html=True)
-    st.text_area("Lyrics", songs[selected_song]['lyrics'], height=400)
+    st.video(songs[selected_song]['url'])
+    st.markdown(songs[selected_song]["lyrics"])
