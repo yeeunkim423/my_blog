@@ -547,10 +547,11 @@ Take me back to the night we met
 
 
 # 노래 선택 박스
-selected_song = st.selectbox("Select a song", list(songs.keys()))
+selected_song = st.radio("Choose a song", list(songs.keys()))
 
-# 선택된 노래의 정보 표시
-if selected_song:
-    st.subheader(selected_song)
-    st.video(songs[selected_song]['url'])
-    st.markdown(songs[selected_song]["lyrics"])
+st.subheader(selected_song)
+st.video(songs[selected_song]['url'])
+
+if "lyrics" in songs[selected_song]:
+    with st.expander("Lyrics"):  # 여기에 텍스트를 'Lyrics'로 하면 접혀 있을 때 보이는 제목이 됨
+        st.markdown(songs[selected_song]["lyrics"])  # 펼치면 가사가 나타남
