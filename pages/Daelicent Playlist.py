@@ -547,7 +547,8 @@ Take me back to the night we met
 
 
 # 노래 선택 박스
-selected_song = st.radio("Choose a song", list(songs.keys()))
+with st.expander("Choose a song"):
+    selected_song = st.radio("Select from the list below:", list(songs.keys()))
 st.subheader(selected_song)
 st.video(songs[selected_song]['url'])
 
