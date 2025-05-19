@@ -1,4 +1,5 @@
 import streamlit as st
+import random
 
 st.set_page_config(page_title="Daelicent Fic Ideas", layout="centered")
 
@@ -40,16 +41,35 @@ with tab1:
             st.success("Notebook cleared.")
 
 # 💡 아이디어 정리 탭
-# 💡 아이디어 정리 탭
 with tab2:
     st.subheader("💡 Fic Prompt Ideas")
 
     default_prompts = [
-        "👑 Daemon as a single father AU with Alicent as the teacher at Milo’s daycare.",
-        "🕊️ Enemies-to-lovers CEO AU where Alicent is a PR manager hired to fix Daemon’s image.",
-        "🩸 A post-canon fic where Alicent is the last person alive who remembers who Daemon truly was.",
-        "✨ Modern social media AU: Daemon’s ex comments on Alicent’s photo.",
-        "🎭 Reincarnation AU: Alicent meets Daemon in every life but always forgets him at the end."
+        "👶 Single dad Daemon AU with Alicent as the teacher at Milo’s daycare.",
+        "🧳 Enemies-to-lovers AU where Alicent is Daemon’s new PR manager.",
+        "🎓 Daemon as a grumpy professor and Alicent as his sunshine TA.",
+        "👑 Royal AU where Alicent is queen and Daemon is her sworn sword.",
+        "🏢 Modern CEO AU with Daemon as Alicent’s fake boyfriend for the press.",
+        "🍼 Single mom Alicent AU with Daemon as her kid’s pediatrician.",
+        "💍 Alicent is Daemon’s ex who shows up at his brother’s wedding.",
+        "🥐 Daemon and Alicent as rival bakery owners in the same street.",
+        "📚 College AU where Daemon is the tattooed philosophy lecturer.",
+        "👨‍👩‍👧‍👦 Co-parents after a one-night stand turned into joint custody.",
+        "💒 Alicent has to plan Daemon’s wedding—until he calls it off.",
+        "🐉 Daemon as a dragonrider, Alicent as the healer who patches him up.",
+        "🎭 Alicent is a princess in disguise, Daemon sees through her act.",
+        "🗂️ Office AU where Daemon and Alicent are forced to share a desk.",
+        "👯 Daemon is Helaena’s brother, Alicent is her best friend.",
+        "🍸 Drunk in Vegas, Daemon and Alicent accidentally get married.",
+        "⏰ Alicent is a kindergarten teacher, Daemon is the hot single dad.",
+        "🎙️ Daemon is a podcast host, Alicent is the viral guest.",
+        "⚖️ Alicent is Otto’s protégée, Daemon is the reckless rival.",
+        "🕵️ They’re forced to go undercover as a couple on the run.",
+        "🧛 Daemon is a vampire, Alicent is the journalist exposing him.",
+        "👶 Reunited exes at their kids’ school events.",
+        "🎩 Alicent is an etiquette coach; Daemon is the feral prince.",
+        "🎨 Daemon is the brooding artist upstairs, Alicent bakes too much.",
+        "💔 Daemon crashes Alicent’s blind date claiming to be her ex."
     ]
 
     # 세션 상태 초기화
@@ -60,7 +80,6 @@ with tab2:
 
     # 무작위 프롬프트 추천
     if st.button("🎲 Prompt me!"):
-        import random
         all_prompts = default_prompts + st.session_state.custom_prompts
         st.session_state.random_prompt = random.choice(all_prompts)
 
@@ -92,4 +111,3 @@ with tab2:
             st.success("Saved prompts cleared.")
     else:
         st.info("No saved prompts yet. Try generating one!")
-
