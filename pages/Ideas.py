@@ -16,6 +16,9 @@ with tab1:
     if "fic_notes" not in st.session_state:
         st.session_state.fic_notes = []
 
+    if "selected_prompts" not in st.session_state:
+        st.session_state.selected_prompts = []
+
     # 폼으로 새 노트 추가
     with st.form("fic_form", clear_on_submit=True):
         new_note = st.text_area("💭 Add a new idea or scene:", height=100)
@@ -30,6 +33,9 @@ with tab1:
     if st.session_state.fic_notes:
         for i, note in enumerate(reversed(st.session_state.fic_notes), 1):
             st.markdown(f"**{len(st.session_state.fic_notes) - i + 1}.** {note}")
+            if st.button("📤 Send to Prompts", key=f"send_{i}"):
+                st.session_state.selected_prompts.append(note)
+                st.success("Note sent to prompts!")
     else:
         st.info("No notes yet. Start writing!")
 
@@ -51,4 +57,11 @@ with tab2:
     - 🎭 *Reincarnation AU: Alicent meets Daemon in every life but always forgets him at the end.*
     """)
 
-    st.info("💬 You can copy these and expand them in your notebook tab!")
+    # Show selected prompts
+    if st.session_state.selected_prompts:
+        st.markdown("---")
+        st.subheader("Your Selected Prompts")
+        for prompt in st.session_state.selected_prompts:
+            st.markdown(f"- {prompt}")
+    else:
+        st.info("No selected prompts yet. Use the button to send notes here.")
