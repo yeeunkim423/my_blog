@@ -545,11 +545,12 @@ Take me back to the night we met
     }
 }
 
-selected_song = st.radio("Choose a song", list(songs.keys()))
 
-st.subheader(selected_song)
-st.video(songs[selected_song]['url'])
+# 노래 선택 박스
+selected_song = st.selectbox("Select a song", list(songs.keys()))
 
-if "lyrics" in songs[selected_song]:
-    st.markdown("**Lyrics:**")
-    st.markdown(songs[selected_song]["lyrics"])
+# 선택된 노래의 정보 표시
+if selected_song:
+    st.subheader(selected_song)
+    st.markdown(f"[▶️ Watch on YouTube]({songs[selected_song]['url']})", unsafe_allow_html=True)
+    st.text_area("Lyrics", songs[selected_song]['lyrics'], height=400)
