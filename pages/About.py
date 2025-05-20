@@ -3,7 +3,7 @@ import base64
 import os
 
 st.set_page_config(page_title="HOTD Timeline", layout="wide")
-st.title("🔥 House of the Dragon — Daemon & Alicent 🔥")
+st.title(" Daemon & Alicent ")
 
 IMAGE_FOLDER = "data"
 
