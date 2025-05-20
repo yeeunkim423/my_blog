@@ -1,14 +1,4 @@
-Thank you for providing the complete code. Let's address the potential issue that might be causing the `IndentationError` and ensure your Streamlit application runs smoothly.
 
-**Key Points to Check:**
-
-1. **Indentation:** Ensure that all indentation is consistent throughout the code. This includes ensuring that tabs and spaces are not mixed.
-
-2. **Structure:** Verify that each block of code is properly nested within its corresponding control structures, such as `with` statements or `if` statements.
-
-Here’s a cleaned-up version of your code to ensure proper indentation and structure:
-
-```python
 import streamlit as st
 import random
 
