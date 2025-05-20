@@ -9,7 +9,7 @@ st.caption("Organize your fic universe and keep your imagination flowing.")
 # 📓 탭 생성
 tab1, tab2 = st.tabs(["📓 Fic Notebook", "💡 Fic Prompts"])
 
-# 📓 메모장 탭
+# ---------------------- 📓 메모장 탭 ---------------------- #
 with tab1:
     st.subheader("📓 Your Fic Notebook")
 
@@ -36,11 +36,11 @@ with tab1:
 
     # 초기화 옵션
     with st.expander("⚙️ Clear all notes"):
-        if st.button("🗑️ Delete All"):
+        if st.button("🗑️ Delete All Notes", key="delete_notes"):
             st.session_state.fic_notes = []
             st.success("Notebook cleared.")
 
-# 💡 아이디어 정리 탭
+# ---------------------- 💡 아이디어 탭 ---------------------- #
 with tab2:
     st.subheader("💡 Fic Prompt Ideas")
 
@@ -95,7 +95,17 @@ with tab2:
         "💼 Daemon is the disgraced heir of a fashion empire; Alicent is sent to clean up his brand.",
         "🏖️ Vacation AU: They get double-booked into the same beach bungalow. Oops.",
         "🔮 Daemon keeps having dreams about a woman he’s never met. Alicent walks into his office one day.",
-        "🪙 Regency AU: Daemon is a scandal-ridden duke, Alicent is the etiquette instructor hired to fix him."
+        "🪙 Regency AU: Daemon is a scandal-ridden duke, Alicent is the etiquette instructor hired to fix him.",
+        "🧟 Daemon is immune to a zombie virus and Alicent is the scientist trying to save humanity.",
+        "🧣 Winter holiday AU where Daemon is the grinchy neighbor and Alicent forces him into the town’s snowman contest.",
+        "📖 Alicent writes cozy romance novels, Daemon leaves snarky reviews under a fake name.",
+        "🎢 Amusement park AU where they get stuck on a ride together and it changes everything.",
+        "🧙‍♂️ Daemon runs a magic shop, Alicent keeps coming in insisting magic isn’t real.",
+        "📼 90s AU where Alicent is the video store clerk and Daemon keeps pretending to return late tapes just to see her.",
+        "💌 Pen pal AU: They fall in love through letters, not knowing they already hate each other in real life.",
+        "🚗 Road trip AU: Alicent needs a driver, Daemon needs gas money. Chaos (and feelings) ensue.",
+        "🍷 Winery AU: Alicent is the wine expert judging Daemon’s struggling vineyard.",
+        "📺 Sitcom-style AU: Daemon and Alicent have to co-host a live morning show despite hating each other off-camera."
     ]
 
     # 세션 상태 초기화
@@ -105,13 +115,13 @@ with tab2:
         st.session_state.custom_prompts = []
 
     # 무작위 프롬프트 추천
-    if st.button("🎲 Prompt me!"):
+    if st.button("🎲 Prompt me!", key="prompt_button"):
         all_prompts = default_prompts + st.session_state.custom_prompts
         st.session_state.random_prompt = random.choice(all_prompts)
 
     if "random_prompt" in st.session_state:
         st.markdown(f"**🔹 Prompt:** {st.session_state.random_prompt}")
-        if st.button("❤️ Save this idea"):
+        if st.button("❤️ Save this idea", key="save_prompt"):
             if st.session_state.random_prompt not in st.session_state.saved_prompts:
                 st.session_state.saved_prompts.append(st.session_state.random_prompt)
                 st.success("Prompt saved!")
@@ -132,8 +142,9 @@ with tab2:
     if st.session_state.saved_prompts:
         for i, prompt in enumerate(st.session_state.saved_prompts, 1):
             st.markdown(f"**{i}.** {prompt}")
-        if st.button("🗑️ Clear Saved Prompts"):
+        if st.button("🗑️ Clear Saved Prompts", key="clear_prompts"):
             st.session_state.saved_prompts = []
             st.success("Saved prompts cleared.")
     else:
         st.info("No saved prompts yet. Try generating one!")
+
